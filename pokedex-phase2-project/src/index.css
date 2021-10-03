@@ -1,3 +1,21 @@
+/* Custom Scrollbar Styling Start */
+html::-webkit-scrollbar {
+  width: 1.5vw;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: rgba(204, 255, 255, 0.65);
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background-color: #CFF;
+}
+
+html::-webkit-scrollbar-track {
+  background-color: #FCC;
+}
+/* Custom Scrollbar Styling End */
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +23,43 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(90deg, #CCFFFF, #FFCCCC);
+  text-align: center;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Homepage Styling Start */
+#homepage-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  gap: 20px 20px;
+  flex-wrap: wrap;
+}
+
+.homepage-div {
+  border: 5px black solid; 
+  background-color: #2a6fb6;
+  color: rgb(245, 235, 235);
+  padding: 20px;
+  margin: auto;
+  height: 125px;
+  width: 600px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.homepage-text {
+  font-size: 22px;
+  font-weight: normal;
+}
+
+.homepage-div:hover {
+  box-shadow: 0 10px 10px 0 rgba(255, 0, 0, 0.4);
+}
+/* Homepage Styling End */
