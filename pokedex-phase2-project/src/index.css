@@ -1,14 +1,17 @@
 /* Custom Scrollbar Styling Start */
 html::-webkit-scrollbar {
-  width: 1.5vw;
+  width: 1.3vw;
 }
 
 html::-webkit-scrollbar-thumb {
-  background-color: rgba(204, 255, 255, 0.65);
+  background-color: #CFF;
+  border-radius: 100vw;
+
 }
 
 html::-webkit-scrollbar-thumb:hover {
-  background-color: #CFF;
+  background-color: rgb(123, 192, 192);
+  border-radius: 100vw;
 }
 
 html::-webkit-scrollbar-track {
@@ -25,6 +28,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(90deg, #CCFFFF, #FFCCCC);
   text-align: center;
+  font-size: 30px;
 }
 
 code {
@@ -50,7 +54,6 @@ code {
   height: 125px;
   width: 600px;
   text-align: center;
-  font-size: 30px;
   font-weight: bold;
 }
 
@@ -62,4 +65,10 @@ code {
 .homepage-div:hover {
   box-shadow: 0 10px 10px 0 rgba(255, 0, 0, 0.4);
 }
+
+/* footer {
+  background-color: #2a6fb6;
+  height: 165px;
+  padding: 20px;
+} */
 /* Homepage Styling End */

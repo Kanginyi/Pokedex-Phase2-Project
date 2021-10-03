@@ -33,10 +33,13 @@ function Homepage() {
                     <p className="homepage-text">Choose some options here!</p>
                 </div>
             </div>
-            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-            <p>
-                asdf
-            </p>
+            <br/><br/><br/><br/>
+            {/* <footer>
+
+                <strong>Check Us Out:</strong><br/>
+                <a href="https://github.com/Kanginyi" target="_blank">Eric Yi</a><br/> 
+                <a href="https://github.com/qd11" target="_blank">Quang Do</a>
+            </footer> */}
         </div>
     );
 }
