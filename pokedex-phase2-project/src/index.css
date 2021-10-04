@@ -72,3 +72,45 @@ code {
   padding: 20px;
 } */
 /* Homepage Styling End */
+
+
+/* POKEMON TEAM CSS */
+.pokeTeamContainer {
+  display: flex;
+  border: 5px hidden;
+  width: 300px;
+  border-radius: 50px;
+  background: white
+}
+
+.pokeTeamSprite img{
+  width: 100%
+}
+
+.pokeTeamInfo {
+  width: 225px;
+}
+
+.pokeTeamNameGender {
+  display: flex;
+  justify-content: space-between;
+}
+.pokeTeamGender {
+  margin-right: 30px
+}
+
+.pokeTeamHPLvl {
+  display: flex;
+  justify-content: space-between
+}
+
+.pokeTeamHpBar {
+  background: green;
+  border: 1px solid black;
+  width:200px;
+  height:15px
+}
+
+.pokeTeamLevel {
+  margin-right: 20px
+}

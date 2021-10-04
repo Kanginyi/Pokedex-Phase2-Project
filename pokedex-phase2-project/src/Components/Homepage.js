@@ -3,6 +3,7 @@ import "../index.css";
 
 import React from 'react';
 import PokemonLogo from "../PokemonLogo.png";
+import PokemonContainer from "./PokemonContainer"
 
 function Homepage() {
     return (
@@ -34,6 +35,7 @@ function Homepage() {
                 </div>
             </div>
             <br/><br/><br/><br/>
+            <PokemonContainer />
             {/* <footer>
 
                 <strong>Check Us Out:</strong><br/>

@@ -2,64 +2,70 @@ import React, {useState, useEffect} from 'react'
 
 
 const Pokemon = ({pokemon}) => {
-    const [pokeAPI, setPokeAPI] = useState=[]
+    const [pokeAPI, setPokeAPI] = useState(null)
 
     useEffect(() => {
-        fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.id}`)
+        console.log(pokemon)
+        fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.pokeID}`)
         .then(resp => resp.json())
         .then(data => (setPokeAPI(data)))
     }, [])
 
-    const base = {
-        hp : pokeAPI.stats.find(stat => stat.name === "hp")["base_stat"],
-        attack : pokeAPI.stats.find(stat => stat.name === "attack")["base_stat"],
-        defense : pokeAPI.stats.find(stat => stat.name === "defense")["base_stat"],
-        specialAttack : pokeAPI.stats.find(stat => stat.name === "special-attack")["base_stat"],
-        specialDefense : pokeAPI.stats.find(stat => stat.name === "special-defense")["base_stat"],
-        speed : pokeAPI.stats.find(stat => stat.name === "speed")["base_stat"],
+    if (pokeAPI) {
+    
+    //Pokemon get Base Stats
+    const pokeStatsKeys = Object.keys(pokeAPI.stats)
+    const findStatNum = (statName) => {
+        return pokeStatsKeys.find(num => pokeAPI.stats[num].stat.name === statName)
     }
-
-    //const pokeGenerations = ["generation-viii", "generation-vii", "generation-vi", "generation-v", "generation-iv", "generation-iii", "generation-ii", "generation-i"]
-    const pokeGenerations = (Object.keys(pokeAPI.sprites.versions).filter(generation => "icons" in generation)).reverse()
-    const spriteImg = pokeGenerations.find((generation) => generation["icons"]["front_default"])["icons"]["front_default"]
-
+    const base = {
+        hp : pokeAPI.stats[findStatNum('hp')].base_stat,
+        attack : pokeAPI.stats[findStatNum('attack')].base_stat,
+        defense : pokeAPI.stats[findStatNum('defense')].base_stat,
+        specialAttack : pokeAPI.stats[findStatNum('special-attack')].base_stat,
+        specialDefense : pokeAPI.stats[findStatNum('special-defense')].base_stat,
+        speed : pokeAPI.stats[findStatNum('speed')].base_stat,
+    }
     const hp = Math.floor(0.01*(2*base.hp+pokemon.IV.hp+Math.floor(0.25 * pokemon.EV.hp))*pokemon.level)+pokemon.level + 10
 
+    const pokeGenerations = (Object.keys(pokeAPI.sprites.versions).filter(generation => "icons" in pokeAPI.sprites.versions[generation])).reverse()
+    const spriteImg = pokeAPI.sprites.versions[pokeGenerations.find(generation => pokeAPI.sprites.versions[generation].icons.front_default)].icons.front_default
+    console.log(spriteImg)
+
     return (
-        <div>
-            <div>
+        <div className="pokeTeamContainer">
+            <div className="pokeTeamSprite">
                 {/* SPRITE */}
-                <img src={spriteImg}/>
+                <img src={spriteImg} alt="Sprite"/>
             </div>
-            <div>
+            <div className="pokeTeamInfo">
                 {/* top div: display name and gender */}
-                <div> 
+                <div  className="pokeTeamNameGender"> 
                     <div>
-                        {pokeAPI.name}
+                        {pokeAPI.name[0].toUpperCase() + pokeAPI.name.slice(1)}
                     </div>
-                    <div>
+                    <div className="pokeTeamGender">
                         {pokemon.gender? (pokemon.gender === "male"? "♂" : "♀") :null}
                     </div>
                 </div>
                 {/* middle div: display HP bar */}
-                <div>
-                    <hr style={{
-                        color: "green"
-                    }}
-                    />
-                </div>
+                <div className="pokeTeamHpBar"></div>
                 {/* bottom div: display HP and level */}
-                <div>
+                <div className="pokeTeamHPLvl">
                     <div>
-                        <h5>{hp}/{hp}</h5>
+                        {hp}/{hp}
                     </div>
-                    <div>
-                        <h5>Lv. {pokemon.level}</h5>
+                    <div className="pokeTeamLevel">
+                        {"Lv." + pokemon.level}
                     </div>
                 </div>
             </div>
         </div>
     )
+    }
+    else {
+        return null
+    }
 }
 
 export default Pokemon
