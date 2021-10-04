@@ -63,7 +63,7 @@ code {
 }
 
 .homepage-div:hover {
-  box-shadow: 0 10px 10px 0 rgba(255, 0, 0, 0.4);
+  box-shadow: 0 10px 10px 5px rgba(255, 0, 0, 0.4);
 }
 
 /* footer {
