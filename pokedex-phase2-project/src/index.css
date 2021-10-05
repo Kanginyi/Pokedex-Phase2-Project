@@ -80,7 +80,11 @@ code {
   border: 5px hidden;
   width: 300px;
   border-radius: 50px;
-  background: white
+  background: white;
+  padding: 2px;
+  margin-left: 42px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .pokeTeamSprite img{

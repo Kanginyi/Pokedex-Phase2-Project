@@ -5,7 +5,6 @@ const Pokemon = ({pokemon}) => {
     const [pokeAPI, setPokeAPI] = useState(null)
 
     useEffect(() => {
-        console.log(pokemon)
         fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.pokeID}`)
         .then(resp => resp.json())
         .then(data => (setPokeAPI(data)))
@@ -30,7 +29,6 @@ const Pokemon = ({pokemon}) => {
 
     const pokeGenerations = (Object.keys(pokeAPI.sprites.versions).filter(generation => "icons" in pokeAPI.sprites.versions[generation])).reverse()
     const spriteImg = pokeAPI.sprites.versions[pokeGenerations.find(generation => pokeAPI.sprites.versions[generation].icons.front_default)].icons.front_default
-    console.log(spriteImg)
 
     return (
         <div className="pokeTeamContainer">
