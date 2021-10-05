@@ -17,6 +17,7 @@ const Header = styled.div`
     display: flex;
     height: 100px;
     align-items: center;
+    margin-left: 20px;
     & img{
         width: auto;
         height: 100%;

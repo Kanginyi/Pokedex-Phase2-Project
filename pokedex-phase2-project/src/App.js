@@ -8,8 +8,6 @@ import { Route, Switch, useRouteMatch} from "react-router-dom"
 
 function App() {
 
-  console.log(useRouteMatch())
-
   return (
     <div>
       <Switch>

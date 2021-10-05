@@ -18,6 +18,7 @@ export default PokemonButtons
 const ButtonBar = styled.div`
     display: flex;
     width: 100%;
+    margin-top: 50px;
     & a {
         margin-left: 25px
     }

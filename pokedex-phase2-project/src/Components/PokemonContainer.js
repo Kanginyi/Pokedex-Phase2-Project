@@ -1,11 +1,19 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Pokemon from './Pokemon'
 import PokemonHeader from './PokemonHeader'
 import PokemonButtons from './PokemonButtons'
+import PokemonImage from './PokemonImage'
 import styled from 'styled-components'
 
 
 const PokemonContainer = () => {
+
+    const [selectedPokemon, setSelectedPokemon] = useState({
+        id: null,
+        pokeID: null //use this number for end of url
+    })
+    const [showSummary, setShowSummary] = useState(false)
+
 
     const savePoke = [
         {
@@ -102,7 +110,7 @@ const PokemonContainer = () => {
         },
         {
             id: 5,
-            pokeID: 430,
+            pokeID: 10079,
             level: 50,
             gender: "male",
             nature: "hardy",
@@ -150,16 +158,41 @@ const PokemonContainer = () => {
 
 
     return (
-        <PokemonContain>
-            <PokemonHeader />
-            {savePoke.map(pokemon => <Pokemon pokemon={pokemon} key={pokemon.id} />)}
+        <div>
+            <PokemonListImageSummaryContainer>
+                <SkewLeftDiv>
+                    <PokemonHeader />
+                    {savePoke.map(pokemon => <Pokemon pokemon={pokemon} key={pokemon.id} selectedPokemon={selectedPokemon} setSelectedPokemon={setSelectedPokemon} />)}
+                </SkewLeftDiv>
+                <NormDiv>
+                    {selectedPokemon.pokeID? <PokemonImage pokeID={selectedPokemon.pokeID}/> : null}
+                </NormDiv>
+                <SkewRightDiv>
+
+                </SkewRightDiv>
+            </PokemonListImageSummaryContainer>
             <PokemonButtons />
-        </PokemonContain>
+        </div>
     )
 }
 
 export default PokemonContainer
 
-const PokemonContain = styled.div`
-    
+const PokemonListImageSummaryContainer = styled.div`
+    display: flex;
+    height: 650px
+`
+
+const SkewLeftDiv = styled.div`
+    transform: skew( 0deg, 175deg);
+    transition: all .5s;
+`
+
+const SkewRightDiv = styled.div`
+
+`
+
+const NormDiv = styled.div`
+    margin-top: 70px;
+    margin-left: 50px
 `

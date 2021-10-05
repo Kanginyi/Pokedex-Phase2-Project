@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
+import styled from 'styled-components'
 
-
-const Pokemon = ({pokemon}) => {
+const Pokemon = ({pokemon, setSelectedPokemon, selectedPokemon}) => {
     const [pokeAPI, setPokeAPI] = useState(null)
 
     useEffect(() => {
@@ -27,38 +27,55 @@ const Pokemon = ({pokemon}) => {
     }
     const hp = Math.floor(0.01*(2*base.hp+pokemon.IV.hp+Math.floor(0.25 * pokemon.EV.hp))*pokemon.level)+pokemon.level + 10
 
-    const pokeGenerations = (Object.keys(pokeAPI.sprites.versions).filter(generation => "icons" in pokeAPI.sprites.versions[generation])).reverse()
-    const spriteImg = pokeAPI.sprites.versions[pokeGenerations.find(generation => pokeAPI.sprites.versions[generation].icons.front_default)].icons.front_default
+    // const pokeGenerations = (Object.keys(pokeAPI.sprites.versions).filter(generation => "icons" in pokeAPI.sprites.versions[generation])).reverse()
+    // const spriteImg = pokeAPI.sprites.versions[pokeGenerations.find(generation => pokeAPI.sprites.versions[generation].icons.front_default)].icons.front_default
+    const spriteImg = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-viii/icons/${pokemon.pokeID}.png`
+
+
+    const onClickHandler = () => {
+        if (selectedPokemon.id === pokemon.id) {
+            setSelectedPokemon({
+                id: null,
+                pokeID: null
+            })
+        }
+        else {
+            setSelectedPokemon({
+                id: pokemon.id,
+                pokeID: pokemon.pokeID
+            })
+        }
+    }
 
     return (
-        <div className="pokeTeamContainer">
-            <div className="pokeTeamSprite">
+        <PokeTeamContainer selectedPokemon={selectedPokemon.id} pokeID={pokemon.id} onClick={onClickHandler}>
+            <PokeTeamSprite>
                 {/* SPRITE */}
                 <img src={spriteImg} alt="Sprite"/>
-            </div>
-            <div className="pokeTeamInfo">
+            </PokeTeamSprite>
+            <PokeTeamInfo>
                 {/* top div: display name and gender */}
-                <div  className="pokeTeamNameGender"> 
-                    <div>
+                <PokeTeamNameGender> 
+                    <PokeTeamName>
                         {pokeAPI.name[0].toUpperCase() + pokeAPI.name.slice(1)}
-                    </div>
-                    <div className="pokeTeamGender">
+                    </PokeTeamName>
+                    <PokeTeamGender>
                         {pokemon.gender? (pokemon.gender === "male"? "♂" : "♀") :null}
-                    </div>
-                </div>
+                    </PokeTeamGender>
+                </PokeTeamNameGender>
                 {/* middle div: display HP bar */}
-                <div className="pokeTeamHpBar"></div>
+                <PokeTeamHpBar></PokeTeamHpBar>
                 {/* bottom div: display HP and level */}
-                <div className="pokeTeamHPLvl">
+                <PokeTeamHPLvl>
                     <div>
                         {hp}/{hp}
                     </div>
-                    <div className="pokeTeamLevel">
+                    <PokeTeamLevel>
                         {"Lv." + pokemon.level}
-                    </div>
-                </div>
-            </div>
-        </div>
+                    </PokeTeamLevel>
+                </PokeTeamHPLvl>
+            </PokeTeamInfo>
+        </PokeTeamContainer>
     )
     }
     else {
@@ -67,3 +84,62 @@ const Pokemon = ({pokemon}) => {
 }
 
 export default Pokemon
+
+const PokeTeamContainer = styled.div(({selectedPokemon, pokeID}) =>
+`
+    display: flex;
+    border: 5px hidden;
+    width: 315px;
+    border-radius: 50px;
+    background: ${selectedPokemon === pokeID ? "black":"white"};
+    color:  ${selectedPokemon === pokeID ? "white":"black"};
+    padding: 2px;
+    margin-left: 42px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: all 0.5s;
+    &:hover {
+        transform: scale(1.03)
+    }
+`)
+
+const PokeTeamSprite = styled.div`
+    & img {
+        width: 100%
+    }
+`
+
+const PokeTeamName = styled.div`
+`
+
+const PokeTeamInfo = styled.div `
+    wdith: 225px
+`
+
+const PokeTeamNameGender = styled.div `
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+`
+
+const PokeTeamGender =styled.div`
+    margin-right: 15px
+`
+
+const PokeTeamHPLvl = styled.div`
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+`
+
+const PokeTeamHpBar = styled.div`
+    background: green;
+    border: 1px solid black;
+    width:200px;
+    height:15px
+`
+
+const PokeTeamLevel =styled.div`
+    margin-right: 15px
+`
