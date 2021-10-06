@@ -3,6 +3,7 @@ import Pokemon from './Pokemon'
 import PokemonHeader from './PokemonHeader'
 import PokemonButtons from './PokemonButtons'
 import PokemonImage from './PokemonImage'
+import PokemonSummary from './PokemonSummary'
 import styled from 'styled-components'
 
 
@@ -41,7 +42,7 @@ const PokemonContainer = () => {
         },
         {
             id: 2,
-            pokeID: 6,
+            pokeID: 10078,
             level: 50,
             gender: "female",
             nature: "hardy",
@@ -87,7 +88,7 @@ const PokemonContainer = () => {
         },
         {
             id: 4,
-            pokeID: 355,
+            pokeID: 10007,
             level: 50,
             gender: "male",
             nature: "hardy",
@@ -133,7 +134,7 @@ const PokemonContainer = () => {
         },
         {
             id: 6,
-            pokeID: 500,
+            pokeID: 10044,
             level: 50,
             gender: "male",
             nature: "hardy",
@@ -162,16 +163,16 @@ const PokemonContainer = () => {
             <PokemonListImageSummaryContainer>
                 <SkewLeftDiv>
                     <PokemonHeader />
-                    {savePoke.map(pokemon => <Pokemon pokemon={pokemon} key={pokemon.id} selectedPokemon={selectedPokemon} setSelectedPokemon={setSelectedPokemon} />)}
+                    {savePoke.map(pokemon => <Pokemon pokemon={pokemon} key={pokemon.id} selectedPokemon={selectedPokemon} setSelectedPokemon={setSelectedPokemon} setShowSummary={setShowSummary} />)}
                 </SkewLeftDiv>
                 <NormDiv>
                     {selectedPokemon.pokeID? <PokemonImage pokeID={selectedPokemon.pokeID}/> : null}
                 </NormDiv>
                 <SkewRightDiv>
-
+                    {showSummary ? <PokemonSummary /> : null}
                 </SkewRightDiv>
             </PokemonListImageSummaryContainer>
-            <PokemonButtons />
+            <PokemonButtons setShowSummary={setShowSummary} showSummary={showSummary} selectedPokemon={selectedPokemon}/>
         </div>
     )
 }
@@ -184,15 +185,19 @@ const PokemonListImageSummaryContainer = styled.div`
 `
 
 const SkewLeftDiv = styled.div`
+    margin-top: 20px;
     transform: skew( 0deg, 175deg);
     transition: all .5s;
 `
 
 const SkewRightDiv = styled.div`
-
+    margin-top: 156px;
+    margin-left: 60px;
+    transform: skew( 0deg, 5deg);
+    transition: all .5s;
 `
 
 const NormDiv = styled.div`
-    margin-top: 70px;
-    margin-left: 50px
+    margin-top: 100px;
+    margin-left: 110px
 `

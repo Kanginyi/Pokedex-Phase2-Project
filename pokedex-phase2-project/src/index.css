@@ -74,16 +74,4 @@ code {
 /* Homepage Styling End */
 
 
-/* POKEMON TEAM CSS */
-.pokeTeamContainer {
-  display: flex;
-  border: 5px hidden;
-  width: 300px;
-  border-radius: 50px;
-  background: white;
-  padding: 2px;
-  margin-left: 42px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
 

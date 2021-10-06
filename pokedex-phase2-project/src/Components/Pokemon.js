@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
-import styled from 'styled-components'
+import styled, { keyframes} from 'styled-components'
 
-const Pokemon = ({pokemon, setSelectedPokemon, selectedPokemon}) => {
+const Pokemon = ({pokemon, setSelectedPokemon, selectedPokemon, setShowSummary}) => {
     const [pokeAPI, setPokeAPI] = useState(null)
 
     useEffect(() => {
@@ -38,6 +38,7 @@ const Pokemon = ({pokemon, setSelectedPokemon, selectedPokemon}) => {
                 id: null,
                 pokeID: null
             })
+            setShowSummary(false)
         }
         else {
             setSelectedPokemon({
@@ -49,10 +50,14 @@ const Pokemon = ({pokemon, setSelectedPokemon, selectedPokemon}) => {
 
     return (
         <PokeTeamContainer selectedPokemon={selectedPokemon.id} pokeID={pokemon.id} onClick={onClickHandler}>
-            <PokeTeamSprite>
-                {/* SPRITE */}
+            {selectedPokemon.id === pokemon.id? 
+            <PokeTeamSpriteSelected>
                 <img src={spriteImg} alt="Sprite"/>
-            </PokeTeamSprite>
+            </PokeTeamSpriteSelected> 
+            :  
+            <PokeTeamSprite>
+                <img src={spriteImg} alt="Sprite"/>
+            </PokeTeamSprite>}
             <PokeTeamInfo>
                 {/* top div: display name and gender */}
                 <PokeTeamNameGender> 
@@ -100,13 +105,37 @@ const PokeTeamContainer = styled.div(({selectedPokemon, pokeID}) =>
     cursor: pointer;
     transition: all 0.5s;
     &:hover {
-        transform: scale(1.03)
+        transform: scale(1.03);
     }
 `)
 
+const spriteMovement = keyframes`
+    0% {transform: translateY(0px)};
+    50% {transform: translateY(-3px)};
+    100% {transform: translateY(0px)};
+`
+
+const spriteMovementSelected = keyframes`
+    0% {transform: translateY(0px)};
+    50% {transform: translateY(-8px)};
+    100% {transform: translateY(0px)};
+`
+
 const PokeTeamSprite = styled.div`
     & img {
-        width: 100%
+        width: 100%;
+        animation-name: ${spriteMovement};
+        animation-duration: 0.5s;
+        animation-iteration-count: infinite;
+    }
+`
+
+const PokeTeamSpriteSelected = styled.div`
+    & img {
+        width: 100%;
+        animation-name: ${spriteMovementSelected};
+        animation-duration: 0.5s;
+        animation-iteration-count: infinite;
     }
 `
 
