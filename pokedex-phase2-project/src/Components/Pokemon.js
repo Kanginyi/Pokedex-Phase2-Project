@@ -19,11 +19,11 @@ const Pokemon = ({pokemon, setSelectedPokemon, selectedPokemon, setShowSummary})
     }
     const base = {
         hp : pokeAPI.stats[findStatNum('hp')].base_stat,
-        attack : pokeAPI.stats[findStatNum('attack')].base_stat,
-        defense : pokeAPI.stats[findStatNum('defense')].base_stat,
-        specialAttack : pokeAPI.stats[findStatNum('special-attack')].base_stat,
-        specialDefense : pokeAPI.stats[findStatNum('special-defense')].base_stat,
-        speed : pokeAPI.stats[findStatNum('speed')].base_stat,
+        // attack : pokeAPI.stats[findStatNum('attack')].base_stat,
+        // defense : pokeAPI.stats[findStatNum('defense')].base_stat,
+        // specialAttack : pokeAPI.stats[findStatNum('special-attack')].base_stat,
+        // specialDefense : pokeAPI.stats[findStatNum('special-defense')].base_stat,
+        // speed : pokeAPI.stats[findStatNum('speed')].base_stat,
     }
     const hp = Math.floor(0.01*(2*base.hp+pokemon.IV.hp+Math.floor(0.25 * pokemon.EV.hp))*pokemon.level)+pokemon.level + 10
 
@@ -62,7 +62,8 @@ const Pokemon = ({pokemon, setSelectedPokemon, selectedPokemon, setShowSummary})
                 {/* top div: display name and gender */}
                 <PokeTeamNameGender> 
                     <PokeTeamName>
-                        {pokeAPI.name[0].toUpperCase() + pokeAPI.name.slice(1)}
+                        {/* {pokeAPI.name[0].toUpperCase() + pokeAPI.name.slice(1)} */}
+                        {pokemon.nickname}
                     </PokeTeamName>
                     <PokeTeamGender>
                         {pokemon.gender? (pokemon.gender === "male"? "♂" : "♀") :null}
@@ -143,7 +144,7 @@ const PokeTeamName = styled.div`
 `
 
 const PokeTeamInfo = styled.div `
-    wdith: 225px
+    width: 210px
 `
 
 const PokeTeamNameGender = styled.div `

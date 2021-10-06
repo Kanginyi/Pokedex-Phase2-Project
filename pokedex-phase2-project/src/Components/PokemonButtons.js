@@ -4,9 +4,6 @@ import {Link} from 'react-router-dom'
 import styled from 'styled-components'
 
 const PokemonButtons = ({setShowSummary, showSummary, selectedPokemon}) => {
-
-    console.log(selectedPokemon.id)
-
     return (
         <ButtonBar>
             <Link to="/">

@@ -19,6 +19,7 @@ const PokemonContainer = () => {
     const savePoke = [
         {
             id: 1,
+            nickname: "A",
             pokeID: 835,
             level: 50,
             gender: "male",
@@ -42,6 +43,7 @@ const PokemonContainer = () => {
         },
         {
             id: 2,
+            nickname: "B",
             pokeID: 10078,
             level: 50,
             gender: "female",
@@ -65,6 +67,7 @@ const PokemonContainer = () => {
         },
         {
             id: 3,
+            nickname: "C",
             pokeID: 150,
             level: 50,
             gender: "male",
@@ -88,6 +91,7 @@ const PokemonContainer = () => {
         },
         {
             id: 4,
+            nickname: "D",
             pokeID: 10007,
             level: 50,
             gender: "male",
@@ -111,6 +115,7 @@ const PokemonContainer = () => {
         },
         {
             id: 5,
+            nickname: "E",
             pokeID: 10079,
             level: 50,
             gender: "male",
@@ -134,6 +139,7 @@ const PokemonContainer = () => {
         },
         {
             id: 6,
+            nickname: "F",
             pokeID: 10044,
             level: 50,
             gender: "male",
@@ -169,7 +175,7 @@ const PokemonContainer = () => {
                     {selectedPokemon.pokeID? <PokemonImage pokeID={selectedPokemon.pokeID}/> : null}
                 </NormDiv>
                 <SkewRightDiv>
-                    {showSummary ? <PokemonSummary /> : null}
+                    {showSummary ? <PokemonSummary selectedPokemon={selectedPokemon} hlPokemon={savePoke.find(pokemon => pokemon.id === selectedPokemon.id)}/> : null}
                 </SkewRightDiv>
             </PokemonListImageSummaryContainer>
             <PokemonButtons setShowSummary={setShowSummary} showSummary={showSummary} selectedPokemon={selectedPokemon}/>
