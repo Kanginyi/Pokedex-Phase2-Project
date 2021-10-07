@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
-import { Bar, Radar } from 'react-chartjs-2'
+import { Radar } from 'react-chartjs-2'
 
-const PokemonRadarChart = ({hlPokemon}) => {
+const PokemonRadarChart = ({hlPokemon, highestStat}) => {
     const [pokeAPI, setPokeAPI] = useState(null)
 
     useEffect(() => {
@@ -19,7 +19,7 @@ const PokemonRadarChart = ({hlPokemon}) => {
         speed : pokeAPI?.stats[Object.keys(pokeAPI.stats).find(num => pokeAPI.stats[num].stat.name === 'speed')].base_stat,
     }
 
-    console.log(base)
+    console.log(hlPokemon.EV)
 
     const hp = base.hp ? Math.floor(0.01*(2*base.hp+hlPokemon.IV.hp+Math.floor(0.25 * hlPokemon.EV.hp))*hlPokemon.level)+hlPokemon.level + 10 : 0;
     const attack = base.attack? Math.floor(0.01*(2*base.attack+hlPokemon.IV.attack+Math.floor(0.25 * hlPokemon.EV.attack))*hlPokemon.level) + 5 : 0;
@@ -27,8 +27,6 @@ const PokemonRadarChart = ({hlPokemon}) => {
     const specAttack = base.specialAttack? Math.floor(0.01*(2*base.specialAttack+hlPokemon.IV.specialAttack+Math.floor(0.25 * hlPokemon.EV.specialAttack))*hlPokemon.level) + 5 : 0;
     const specDefense = base.specialDefense? Math.floor(0.01*(2*base.specialDefense+hlPokemon.IV.specialDefense+Math.floor(0.25 * hlPokemon.EV.specialDefense))*hlPokemon.level) + 5 : 0;
     const speed = base.speed? Math.floor(0.01*(2*base.speed+hlPokemon.IV.speed+Math.floor(0.25 * hlPokemon.EV.speed))*hlPokemon.level) + 5 : 0;
-
-    console.log(hp, attack, defense, specAttack, specDefense, speed)
 
     return (
         <div>
@@ -47,7 +45,6 @@ const PokemonRadarChart = ({hlPokemon}) => {
                                 'rgba(153, 102, 255, 0.2)',
                                 'rgba(255, 159, 64, 0.2)'
                             ]
-                            //
                         }
                     ]
                 }}
@@ -58,6 +55,7 @@ const PokemonRadarChart = ({hlPokemon}) => {
                     scales: {
                         r: {
                             min: 0,
+                            max: Math.ceil(highestStat / 50)*50,
                             // ticks: {
                             //     stepSize: 20,
                             // }

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import pokeball from '../pokeball.png'
 import PokemonAbility from './PokemonAbility'
 import PokemonRadarChart from './PokemonRadarChart'
+import PokemonModify from './PokemonModify'
 //Types
 import dark from '../Poketypes/dark.png'
 import dragon from '../Poketypes/dragon.png'
@@ -25,7 +26,7 @@ import bug from '../Poketypes/bug.png'
 //
 import "../tabs.css"
 
-const PokemonSummary = ({hlPokemon, selectedPokemon}) => {
+const PokemonSummary = ({hlPokemon, selectedPokemon, setSavePoke, savePoke, highestStat}) => {
     const [toggleState, setToggleState] = useState(1)
     const [pokeAPI, setPokeAPI] = useState(null)
 
@@ -71,7 +72,7 @@ const PokemonSummary = ({hlPokemon, selectedPokemon}) => {
             <div className="block-tabs">
                 <div className={toggleState === 1 ? "tabs active-tabs" : "tabs"} onClick={() => toggleTab(1)}>Summary</div>
                 <div className={toggleState === 2 ? "tabs active-tabs" : "tabs"} onClick={() => toggleTab(2)}>Stats</div>
-                <div className={toggleState === 3 ? "tabs active-tabs" : "tabs"} onClick={() => toggleTab(3)}>Moves</div>
+                <div className={toggleState === 3 ? "tabs active-tabs" : "tabs"} onClick={() => toggleTab(3)}>Modify</div>
             </div>
 
             <div className="content-tabs">
@@ -121,19 +122,11 @@ const PokemonSummary = ({hlPokemon, selectedPokemon}) => {
                 </div>
                 
                 <div className={toggleState === 2 ? "content  active-content" : "content"}>
-                    <PokemonRadarChart hlPokemon={hlPokemon} />
+                    <PokemonRadarChart hlPokemon={hlPokemon} highestStat={highestStat} />
                 </div>
 
                 <div className={toggleState === 3 ? "content  active-content" : "content"}>
-                    <h2>
-                        Content 3
-                    </h2>
-                    <hr />
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos sed
-                        nostrum rerum laudantium totam unde adipisci incidunt modi alias!
-
-                    </p>
+                    <PokemonModify setSavePoke={setSavePoke} hlPokemon={hlPokemon} savePoke={savePoke}/>
                 </div>
             </div>
         </div>

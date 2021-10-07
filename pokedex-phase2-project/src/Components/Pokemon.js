@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import styled, { keyframes} from 'styled-components'
 
-const Pokemon = ({pokemon, setSelectedPokemon, selectedPokemon, setShowSummary}) => {
+const Pokemon = ({pokemon, setSelectedPokemon, selectedPokemon, setShowSummary, changeHighestStat}) => {
     const [pokeAPI, setPokeAPI] = useState(null)
 
     useEffect(() => {
@@ -19,13 +19,20 @@ const Pokemon = ({pokemon, setSelectedPokemon, selectedPokemon, setShowSummary})
     }
     const base = {
         hp : pokeAPI.stats[findStatNum('hp')].base_stat,
-        // attack : pokeAPI.stats[findStatNum('attack')].base_stat,
-        // defense : pokeAPI.stats[findStatNum('defense')].base_stat,
-        // specialAttack : pokeAPI.stats[findStatNum('special-attack')].base_stat,
-        // specialDefense : pokeAPI.stats[findStatNum('special-defense')].base_stat,
-        // speed : pokeAPI.stats[findStatNum('speed')].base_stat,
+        attack : pokeAPI.stats[findStatNum('attack')].base_stat,
+        defense : pokeAPI.stats[findStatNum('defense')].base_stat,
+        specialAttack : pokeAPI.stats[findStatNum('special-attack')].base_stat,
+        specialDefense : pokeAPI.stats[findStatNum('special-defense')].base_stat,
+        speed : pokeAPI.stats[findStatNum('speed')].base_stat,
     }
     const hp = Math.floor(0.01*(2*base.hp+pokemon.IV.hp+Math.floor(0.25 * pokemon.EV.hp))*pokemon.level)+pokemon.level + 10
+    const attack = Math.floor(0.01*(2*base.attack+pokemon.IV.attack+Math.floor(0.25 * pokemon.EV.attack))*pokemon.level) + 5 
+    const defense = Math.floor(0.01*(2*base.defense+pokemon.IV.defense+Math.floor(0.25 * pokemon.EV.defense))*pokemon.level) + 5 
+    const specAttack = Math.floor(0.01*(2*base.specialAttack+pokemon.IV.specialAttack+Math.floor(0.25 * pokemon.EV.specialAttack))*pokemon.level) + 5 
+    const specDefense = Math.floor(0.01*(2*base.specialDefense+pokemon.IV.specialDefense+Math.floor(0.25 * pokemon.EV.specialDefense))*pokemon.level) + 5 
+    const speed = Math.floor(0.01*(2*base.speed+pokemon.IV.speed+Math.floor(0.25 * pokemon.EV.speed))*pokemon.level) + 5 
+    
+    changeHighestStat(Math.max(hp, attack, defense, specAttack, specDefense, speed))
 
     // const pokeGenerations = (Object.keys(pokeAPI.sprites.versions).filter(generation => "icons" in pokeAPI.sprites.versions[generation])).reverse()
     // const spriteImg = pokeAPI.sprites.versions[pokeGenerations.find(generation => pokeAPI.sprites.versions[generation].icons.front_default)].icons.front_default

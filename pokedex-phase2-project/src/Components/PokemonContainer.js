@@ -9,14 +9,23 @@ import styled from 'styled-components'
 
 const PokemonContainer = () => {
 
+    const [highestStat, setHighestStat] = useState(0)
     const [selectedPokemon, setSelectedPokemon] = useState({
         id: null,
         pokeID: null //use this number for end of url
     })
     const [showSummary, setShowSummary] = useState(false)
+    
+    const changeHighestStat = (num) => {
+        if (num > highestStat) {
+            setHighestStat(num)
+        }
+    }
 
 
-    const savePoke = [
+    
+    ///CHANGE THIS LATER FOR JSON FILE
+    const [savePoke, setSavePoke] = useState([
         {
             id: 1,
             nickname: "A",
@@ -161,21 +170,20 @@ const PokemonContainer = () => {
                 speed: 0,
             }
         },
-    ]
-
+    ])
 
     return (
         <div>
             <PokemonListImageSummaryContainer>
                 <SkewLeftDiv>
                     <PokemonHeader />
-                    {savePoke.map(pokemon => <Pokemon pokemon={pokemon} key={pokemon.id} selectedPokemon={selectedPokemon} setSelectedPokemon={setSelectedPokemon} setShowSummary={setShowSummary} />)}
+                    {savePoke.map(pokemon => <Pokemon changeHighestStat={changeHighestStat} pokemon={pokemon} key={pokemon.id} selectedPokemon={selectedPokemon} setSelectedPokemon={setSelectedPokemon} setShowSummary={setShowSummary} />)}
                 </SkewLeftDiv>
                 <NormDiv>
                     {selectedPokemon.pokeID? <PokemonImage pokeID={selectedPokemon.pokeID}/> : null}
                 </NormDiv>
                 <SkewRightDiv>
-                    {showSummary ? <PokemonSummary selectedPokemon={selectedPokemon} hlPokemon={savePoke.find(pokemon => pokemon.id === selectedPokemon.id)}/> : null}
+                    {showSummary ? <PokemonSummary highestStat={highestStat} savePoke={savePoke} setSavePoke={setSavePoke} selectedPokemon={selectedPokemon} hlPokemon={savePoke.find(pokemon => pokemon.id === selectedPokemon.id)}/> : null}
                 </SkewRightDiv>
             </PokemonListImageSummaryContainer>
             <PokemonButtons setShowSummary={setShowSummary} showSummary={showSummary} selectedPokemon={selectedPokemon}/>
@@ -197,7 +205,7 @@ const SkewLeftDiv = styled.div`
 `
 
 const SkewRightDiv = styled.div`
-    margin-top: 156px;
+    margin-top: 136px;
     margin-left: 60px;
     transform: skew( 0deg, 5deg);
     transition: all .5s;
