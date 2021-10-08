@@ -104,17 +104,23 @@ input[type="text"] {
   text-align: center;
 }
 
-/* .img-balance {
-  vertical-align: bottom;
+/* .modal > .header {
+  border-bottom: 1px solid gray;
+  font-size: 18px;
+  text-align: center;
+  padding: 5px;
+  background-color: #e5e5e5;
 } */
-
-/* footer {
-  background-color: #2a6fb6;
-  height: 165px;
-  padding: 20px;
+/* .modal > .content {
+  width: 100%;
+  padding: 10px 5px;
+}
+.modal > .actions {
+  width: 100%;
+  padding: 10px 5px;
+  margin: auto;
+  text-align: center;
 } */
-/* Homepage Styling End */
-
 /*PokedexInfo Divs*/
 #pokedex-info-container {
   display: flex;

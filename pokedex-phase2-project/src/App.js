@@ -2,19 +2,31 @@ import React from "react";
 
 //Import CSS Styling
 import "./index.css"
+import PokemonContainer from "./Components/PokemonContainer"
 
 //Import Components
 import Homepage from "./Components/Homepage";
+import { Route, Switch, useRouteMatch} from "react-router-dom"
 import PokedexContainer from "./Components/PokedexContainer";
 
 function App() {
+
   return (
-    <>
-      <Homepage />
+    <div>
+      <Switch>
+        <Route exact path="/pokemon">
+          <PokemonContainer />
+        </Route>
+        <Route exact path="/">
+          <Homepage />
+        </Route>
+      </Switch>
+
+      {/* Reroute and update component hierarchy */}
       <hr />
 
       <PokedexContainer />
-  </>
+    </div>
   );
 }
 

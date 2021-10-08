@@ -1,33 +1,185 @@
-import React from 'react';
+<<<<<<< HEAD
+import React, {useState, useEffect} from 'react'
+import styled, { keyframes} from 'styled-components'
 
-import "../index.css";
+const Pokemon = ({pokemon, setSelectedPokemon, selectedPokemon, setShowSummary, changeHighestStat}) => {
+    const [pokeAPI, setPokeAPI] = useState(null)
 
-function Pokemon({setPokeId, id, name, image="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/240px-Pok%C3%A9_Ball_icon.svg.png"}) {
+    useEffect(() => {
+        fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.pokeID}`)
+        .then(resp => resp.json())
+        .then(data => (setPokeAPI(data)))
+    }, [pokemon])
+
+    if (pokeAPI) {
+    
+    //Pokemon get Base Stats
+    const pokeStatsKeys = Object.keys(pokeAPI.stats)
+    const findStatNum = (statName) => {
+        return pokeStatsKeys.find(num => pokeAPI.stats[num].stat.name === statName)
+    }
+    const base = {
+        hp : pokeAPI.stats[findStatNum('hp')].base_stat,
+        attack : pokeAPI.stats[findStatNum('attack')].base_stat,
+        defense : pokeAPI.stats[findStatNum('defense')].base_stat,
+        specialAttack : pokeAPI.stats[findStatNum('special-attack')].base_stat,
+        specialDefense : pokeAPI.stats[findStatNum('special-defense')].base_stat,
+        speed : pokeAPI.stats[findStatNum('speed')].base_stat,
+    }
+    const hp = Math.floor(0.01*(2*base.hp+pokemon.IV.hp+Math.floor(0.25 * pokemon.EV.hp))*pokemon.level)+pokemon.level + 10
+    const attack = Math.floor(0.01*(2*base.attack+pokemon.IV.attack+Math.floor(0.25 * pokemon.EV.attack))*pokemon.level) + 5 
+    const defense = Math.floor(0.01*(2*base.defense+pokemon.IV.defense+Math.floor(0.25 * pokemon.EV.defense))*pokemon.level) + 5 
+    const specAttack = Math.floor(0.01*(2*base.specialAttack+pokemon.IV.specialAttack+Math.floor(0.25 * pokemon.EV.specialAttack))*pokemon.level) + 5 
+    const specDefense = Math.floor(0.01*(2*base.specialDefense+pokemon.IV.specialDefense+Math.floor(0.25 * pokemon.EV.specialDefense))*pokemon.level) + 5 
+    const speed = Math.floor(0.01*(2*base.speed+pokemon.IV.speed+Math.floor(0.25 * pokemon.EV.speed))*pokemon.level) + 5 
+    
+    changeHighestStat(Math.max(hp, attack, defense, specAttack, specDefense, speed))
+
+    const pokeGenerations = (Object.keys(pokeAPI.sprites.versions).filter(generation => "icons" in pokeAPI.sprites.versions[generation])).reverse()
+    const spriteImg = pokeAPI.sprites.versions[pokeGenerations.find(generation => pokeAPI.sprites.versions[generation].icons.front_default)].icons.front_default
+    console.log(spriteImg)
+    // const spriteImg = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-viii/icons/${pokemon.pokeID}.png`
+
+
+    const onClickHandler = () => {
+        if (selectedPokemon.id === pokemon.id) {
+            setSelectedPokemon({
+                id: null,
+                pokeID: null
+            })
+            setShowSummary(false)
+        }
+        else {
+            setSelectedPokemon({
+                id: pokemon.id,
+                pokeID: pokemon.pokeID
+            })
+        }
+    }
 
     return (
-        <> 
-            <li className="poke-Li" onClick={() => setPokeId(id)}>
-                <span id="number-left" className="list-text">{id}</span>
-                <span id="name-right" className="list-text"> | {name}</span>
-                <img
-                    className="img-balance"
-                    src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-viii/icons/${parseInt(id)}.png`}
-                    alt={`Pokemon ` + id + `: ` + name}
-                    title={`Pokemon ` + id + `: ` + name}
-                    width="50px"
-                    height="50px"
-                />
-            </li>
-            <img 
-                id="poke-arrow"
-                style={{display: 'none'}}
-                src="https://static.thenounproject.com/png/74837-200.png"
-                alt="Left Arrow"
-                width="50px"
-                height="50px"
-            />
-        </>
-    );
+        <PokeTeamContainer selectedPokemon={selectedPokemon.id} pokeID={pokemon.id} onClick={onClickHandler}>
+            {selectedPokemon.id === pokemon.id? 
+            <PokeTeamSpriteSelected>
+                <img src={spriteImg} alt="Sprite"/>
+            </PokeTeamSpriteSelected> 
+            :  
+            <PokeTeamSprite>
+                <img src={spriteImg} alt="Sprite"/>
+            </PokeTeamSprite>}
+            <PokeTeamInfo>
+                {/* top div: display name and gender */}
+                <PokeTeamNameGender> 
+                    <PokeTeamName>
+                        {/* {pokeAPI.name[0].toUpperCase() + pokeAPI.name.slice(1)} */}
+                        {pokemon.nickname}
+                    </PokeTeamName>
+                    <PokeTeamGender>
+                        {pokemon.gender? (pokemon.gender === "male"? "♂" : "♀") :null}
+                    </PokeTeamGender>
+                </PokeTeamNameGender>
+                {/* middle div: display HP bar */}
+                <PokeTeamHpBar></PokeTeamHpBar>
+                {/* bottom div: display HP and level */}
+                <PokeTeamHPLvl>
+                    <div>
+                        {hp}/{hp}
+                    </div>
+                    <PokeTeamLevel>
+                        {"Lv." + pokemon.level}
+                    </PokeTeamLevel>
+                </PokeTeamHPLvl>
+            </PokeTeamInfo>
+        </PokeTeamContainer>
+    )
+    }
+    else {
+        return null
+    }
 }
 
-export default Pokemon;
+export default Pokemon
+
+const PokeTeamContainer = styled.div(({selectedPokemon, pokeID}) =>
+`
+    display: flex;
+    border: 5px hidden;
+    width: 315px;
+    border-radius: 50px;
+    background: ${selectedPokemon === pokeID ? "black":"#f8ffff"};
+    color:  ${selectedPokemon === pokeID ? "#f8ffff":"black"};
+    padding: 2px;
+    margin-left: 42px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: all 0.5s;
+    &:hover {
+        transform: scale(1.03);
+    }
+    box-shadow: 10px 7.5px rgba(3, 3, 3, 0.15);
+`)
+
+const spriteMovement = keyframes`
+    0% {transform: translateY(0px)};
+    50% {transform: translateY(-3px)};
+    100% {transform: translateY(0px)};
+`
+
+const spriteMovementSelected = keyframes`
+    0% {transform: translateY(0px)};
+    50% {transform: translateY(-8px)};
+    100% {transform: translateY(0px)};
+`
+
+const PokeTeamSprite = styled.div`
+    & img {
+        width: 100%;
+        animation-name: ${spriteMovement};
+        animation-duration: 0.5s;
+        animation-iteration-count: infinite;
+    }
+`
+
+const PokeTeamSpriteSelected = styled.div`
+    & img {
+        width: 100%;
+        animation-name: ${spriteMovementSelected};
+        animation-duration: 0.5s;
+        animation-iteration-count: infinite;
+    }
+`
+
+const PokeTeamName = styled.div`
+`
+
+const PokeTeamInfo = styled.div `
+    width: 210px
+`
+
+const PokeTeamNameGender = styled.div `
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+`
+
+const PokeTeamGender =styled.div`
+    margin-right: 15px
+`
+
+const PokeTeamHPLvl = styled.div`
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+`
+
+const PokeTeamHpBar = styled.div`
+    background: green;
+    border: 1px solid black;
+    width:200px;
+    height:15px
+`
+
+const PokeTeamLevel =styled.div`
+    margin-right: 15px
+`
