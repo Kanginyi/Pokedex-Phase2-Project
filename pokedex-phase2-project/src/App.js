@@ -1,3 +1,5 @@
+import React from "react";
+
 //Import CSS Styling
 import "./index.css"
 import PokemonContainer from "./Components/PokemonContainer"
@@ -5,6 +7,7 @@ import PokemonContainer from "./Components/PokemonContainer"
 //Import Components
 import Homepage from "./Components/Homepage";
 import { Route, Switch, useRouteMatch} from "react-router-dom"
+import PokedexContainer from "./Components/PokedexContainer";
 
 function App() {
 
@@ -18,6 +21,11 @@ function App() {
           <Homepage />
         </Route>
       </Switch>
+
+      {/* Reroute and update component hierarchy */}
+      <hr />
+
+      <PokedexContainer />
     </div>
   );
 }

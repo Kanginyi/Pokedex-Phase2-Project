@@ -63,16 +63,46 @@ code {
 }
 
 .homepage-div:hover {
-  box-shadow: 0 10px 10px 0 rgba(255, 0, 0, 0.4);
+  box-shadow: 0 10px 10px 5px rgba(255, 0, 0, 0.4);
 }
 
-/* footer {
-  background-color: #2a6fb6;
-  height: 165px;
-  padding: 20px;
-} */
-/* Homepage Styling End */
+#poke-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px 10px;
+  justify-content: center;
+  align-items: flex-end;
+}
 
+.poke-Li {
+  border: 3px black solid;
+  border-radius: 50px;
+  width: 350px;
+  padding: 10px;
+  text-align: right;
+  box-shadow: 10px 7.5px rgba(3, 3, 3, 0.15);
+}
+
+.poke-Li:hover {
+  background-color: black;
+  color: white;
+}
+
+.list-text {
+  vertical-align: 20%;
+}
+
+#poke-arrow {
+  position: absolute;
+  left: 435px;
+  /* display: none; */
+}
+
+input[type="text"] {
+  height: 30px;
+  text-align: center;
+}
 
 /* .modal > .header {
   border-bottom: 1px solid gray;
@@ -91,3 +121,123 @@ code {
   margin: auto;
   text-align: center;
 } */
+/*PokedexInfo Divs*/
+#pokedex-info-container {
+  display: flex;
+  align-items: center;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 10px 10px;
+}
+
+.pokedex-info-box {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 500px;
+  width: 500px;
+  border: 5px black double;
+  padding: 10px;
+}
+
+.type {
+  border: 2px black solid;
+  border-radius: 10%;
+  padding: 3px;
+  margin: 5px;
+}
+
+.ability-name {
+  padding: 5px;
+}
+
+#add-to-team-button {
+  animation-name: background-color-cycle;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  background-color: #CCFFFF;
+  width: 175px;
+  height: 25px;
+}
+
+@keyframes background-color-cycle {
+  10% {background-color: #CCFFFF;}
+  60% {background-color: #FFCCCC;}
+  100% {background-color: #CCFFFF;}
+}
+
+/*End PokedexInfo Divs*/
+
+/* Type Classes */
+.normal {
+  background-color: #a8a878;
+}
+
+.fighting {
+  background-color: #c03028;
+}
+
+.flying {
+  background-color: #a890f0;
+}
+
+.poison {
+  background-color: #a040a0;
+}
+
+.ground {
+  background-color: #e0c068;
+}
+
+.rock {
+  background-color: #83701d;
+}
+
+.bug {
+  background-color: #a8b820;
+}
+
+.ghost {
+  background-color: #705898;
+}
+
+.steel {
+  background-color: #b8b8d0;
+}
+
+.grass {
+  background-color: #78c850;
+}
+
+.fire {
+  background-color: #f08030;
+}
+
+.water {
+  background-color: #6890f0;
+}
+
+.electric {
+  background-color: #f8d030;
+}
+
+.psychic {
+  background-color: #f85888;
+}
+
+.ice {
+  background-color: #98d8d8;
+}
+
+.dragon {
+  background-color: #7038f8;
+}
+
+.dark {
+  background-color: #705848;
+}
+
+.fairy {
+  background-color: #ee99ac;
+}
+/*End Type Classes*/
