@@ -167,13 +167,18 @@ input[type="text"] {
   padding: 5px;
 }
 
+#not-to-team-button {
+  width: 175px;
+  height: 30px;
+}
+
 #add-to-team-button {
   animation-name: background-color-cycle;
   animation-duration: 2s;
   animation-iteration-count: infinite;
   background-color: #CCFFFF;
   width: 175px;
-  height: 25px;
+  height: 30px;
 }
 
 @keyframes background-color-cycle {
