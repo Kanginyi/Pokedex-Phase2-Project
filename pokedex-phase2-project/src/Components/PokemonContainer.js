@@ -26,7 +26,12 @@ const PokemonContainer = () => {
     useEffect(() => {
         fetch("http://localhost:4000/team")
         .then(resp => resp.json())
-        .then(data => setSavePoke(data))
+        .then(data => {
+            if (data.length > 0) {
+                setSavePoke(data)
+            }
+        })
+
     }, [])
 
     return (
