@@ -10,7 +10,7 @@ function PokedexContainer({savePoke, setSavePoke}) {
     const [malePoke, setMalePoke] = useState([])
     const [femalePoke, setFemalePoke] = useState([])
     const [genderlessPoke, setGenderlessPoke] = useState([])
-    console.log(genderlessPoke)
+
 
     useEffect(() => {
         fetch('https://pokeapi.co/api/v2/gender/male/')
@@ -33,8 +33,7 @@ function PokedexContainer({savePoke, setSavePoke}) {
     return (
         <div>
             {pokeId ? <PokedexTop pokeId={pokeId} savePoke={savePoke} setSavePoke={setSavePoke} malePoke={malePoke} femalePoke={femalePoke} genderlessPoke={genderlessPoke} /> : null}
-            <PokedexBottom setPokeId={setPokeId}/>
-            <hr />
+            <PokedexBottom setPokeId={setPokeId} pokeId={pokeId}/>
         </div>
     );
 }

@@ -14157,36 +14157,29 @@
   ],
   "team": [
     {
-      "id": 3,
-      "nickname": "Pidgeot",
-      "dexID": 18,
-      "pokeID": 10073,
-      "level": 29,
+      "id": 1,
+      "nickname": "Ivysaur",
+      "dexID": 2,
+      "pokeID": 2,
+      "level": 69,
       "gender": "female",
-      "nature": "docile",
+      "nature": "brave",
       "varieties": [
         {
           "is_default": true,
           "pokemon": {
-            "name": "pidgeot",
-            "url": "https://pokeapi.co/api/v2/pokemon/18/"
-          }
-        },
-        {
-          "is_default": false,
-          "pokemon": {
-            "name": "pidgeot-mega",
-            "url": "https://pokeapi.co/api/v2/pokemon/10073/"
+            "name": "ivysaur",
+            "url": "https://pokeapi.co/api/v2/pokemon/2/"
           }
         }
       ],
       "IV": {
-        "hp": 13,
-        "attack": 2,
-        "defense": 20,
-        "specialAttack": 14,
-        "specialDefense": 4,
-        "speed": 25
+        "hp": 27,
+        "attack": 12,
+        "defense": 13,
+        "specialAttack": 3,
+        "specialDefense": 30,
+        "speed": 3
       },
       "EV": {
         "hp": 0,
@@ -14198,36 +14191,43 @@
       }
     },
     {
-      "id": 5,
-      "nickname": "Kyogre",
-      "dexID": 382,
-      "pokeID": 10077,
-      "level": 84,
-      "gender": null,
-      "nature": "relaxed",
+      "id": 2,
+      "nickname": "Venusaur",
+      "dexID": 3,
+      "pokeID": 3,
+      "level": 64,
+      "gender": "female",
+      "nature": "careful",
       "varieties": [
         {
           "is_default": true,
           "pokemon": {
-            "name": "kyogre",
-            "url": "https://pokeapi.co/api/v2/pokemon/382/"
+            "name": "venusaur",
+            "url": "https://pokeapi.co/api/v2/pokemon/3/"
           }
         },
         {
           "is_default": false,
           "pokemon": {
-            "name": "kyogre-primal",
-            "url": "https://pokeapi.co/api/v2/pokemon/10077/"
+            "name": "venusaur-mega",
+            "url": "https://pokeapi.co/api/v2/pokemon/10033/"
+          }
+        },
+        {
+          "is_default": false,
+          "pokemon": {
+            "name": "venusaur-gmax",
+            "url": "https://pokeapi.co/api/v2/pokemon/10186/"
           }
         }
       ],
       "IV": {
-        "hp": 7,
-        "attack": 21,
+        "hp": 21,
+        "attack": 17,
         "defense": 19,
-        "specialAttack": 27,
-        "specialDefense": 31,
-        "speed": 7
+        "specialAttack": 7,
+        "specialDefense": 20,
+        "speed": 26
       },
       "EV": {
         "hp": 0,
@@ -14239,43 +14239,29 @@
       }
     },
     {
-      "id": 6,
-      "nickname": "Mewtwo",
-      "dexID": 150,
-      "pokeID": 10044,
-      "level": 33,
-      "gender": null,
-      "nature": "quirky",
+      "id": 3,
+      "nickname": "Bulbasaur",
+      "dexID": 1,
+      "pokeID": 1,
+      "level": 49,
+      "gender": "female",
+      "nature": "calm",
       "varieties": [
         {
           "is_default": true,
           "pokemon": {
-            "name": "mewtwo",
-            "url": "https://pokeapi.co/api/v2/pokemon/150/"
-          }
-        },
-        {
-          "is_default": false,
-          "pokemon": {
-            "name": "mewtwo-mega-x",
-            "url": "https://pokeapi.co/api/v2/pokemon/10043/"
-          }
-        },
-        {
-          "is_default": false,
-          "pokemon": {
-            "name": "mewtwo-mega-y",
-            "url": "https://pokeapi.co/api/v2/pokemon/10044/"
+            "name": "bulbasaur",
+            "url": "https://pokeapi.co/api/v2/pokemon/1/"
           }
         }
       ],
       "IV": {
-        "hp": 11,
-        "attack": 31,
-        "defense": 14,
-        "specialAttack": 31,
-        "specialDefense": 6,
-        "speed": 30
+        "hp": 12,
+        "attack": 6,
+        "defense": 28,
+        "specialAttack": 24,
+        "specialDefense": 21,
+        "speed": 24
       },
       "EV": {
         "hp": 0,
@@ -14288,35 +14274,117 @@
     },
     {
       "id": 4,
-      "nickname": "Eternatus",
-      "dexID": 890,
-      "pokeID": 10217,
-      "level": 7,
-      "gender": null,
-      "nature": "calm",
+      "nickname": "Charmander",
+      "dexID": 4,
+      "pokeID": 4,
+      "level": 74,
+      "gender": "female",
+      "nature": "relaxed",
       "varieties": [
         {
           "is_default": true,
           "pokemon": {
-            "name": "eternatus",
-            "url": "https://pokeapi.co/api/v2/pokemon/890/"
+            "name": "charmander",
+            "url": "https://pokeapi.co/api/v2/pokemon/4/"
+          }
+        }
+      ],
+      "IV": {
+        "hp": 30,
+        "attack": 5,
+        "defense": 9,
+        "specialAttack": 0,
+        "specialDefense": 31,
+        "speed": 8
+      },
+      "EV": {
+        "hp": 0,
+        "attack": 0,
+        "defense": 0,
+        "specialAttack": 0,
+        "specialDefense": 0,
+        "speed": 0
+      }
+    },
+    {
+      "id": 5,
+      "nickname": "Charmeleon",
+      "dexID": 5,
+      "pokeID": 5,
+      "level": 28,
+      "gender": "male",
+      "nature": "mild",
+      "varieties": [
+        {
+          "is_default": true,
+          "pokemon": {
+            "name": "charmeleon",
+            "url": "https://pokeapi.co/api/v2/pokemon/5/"
+          }
+        }
+      ],
+      "IV": {
+        "hp": 7,
+        "attack": 4,
+        "defense": 12,
+        "specialAttack": 12,
+        "specialDefense": 20,
+        "speed": 1
+      },
+      "EV": {
+        "hp": 0,
+        "attack": 0,
+        "defense": 0,
+        "specialAttack": 0,
+        "specialDefense": 0,
+        "speed": 0
+      }
+    },
+    {
+      "id": 6,
+      "nickname": "Charizard",
+      "dexID": 6,
+      "pokeID": 6,
+      "level": 53,
+      "gender": "female",
+      "nature": "lax",
+      "varieties": [
+        {
+          "is_default": true,
+          "pokemon": {
+            "name": "charizard",
+            "url": "https://pokeapi.co/api/v2/pokemon/6/"
           }
         },
         {
           "is_default": false,
           "pokemon": {
-            "name": "eternatus-eternamax",
-            "url": "https://pokeapi.co/api/v2/pokemon/10217/"
+            "name": "charizard-mega-x",
+            "url": "https://pokeapi.co/api/v2/pokemon/10034/"
+          }
+        },
+        {
+          "is_default": false,
+          "pokemon": {
+            "name": "charizard-mega-y",
+            "url": "https://pokeapi.co/api/v2/pokemon/10035/"
+          }
+        },
+        {
+          "is_default": false,
+          "pokemon": {
+            "name": "charizard-gmax",
+            "url": "https://pokeapi.co/api/v2/pokemon/10187/"
           }
         }
       ],
       "IV": {
-        "hp": 2,
-        "attack": 2,
-        "defense": 31,
-        "specialAttack": 9,
-        "specialDefense": 24,
-        "speed": 2
+        "hp": 7,
+        "attack": 27,
+        "defense": 8,
+        "specialAttack": 16,
+        "specialDefense": 17,
+        "speed": 18
       },
       "EV": {
         "hp": 0,

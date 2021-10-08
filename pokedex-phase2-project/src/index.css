@@ -78,7 +78,7 @@ code {
 .poke-Li {
   border: 3px black solid;
   border-radius: 50px;
-  width: 350px;
+  width: 300px;
   padding: 10px;
   text-align: right;
   box-shadow: 10px 7.5px rgba(3, 3, 3, 0.15);
@@ -143,6 +143,7 @@ input[type="text"] {
   flex-flow: row wrap;
   justify-content: center;
   gap: 10px 10px;
+  margin-top: 20px;
 }
 
 .pokedex-info-box {

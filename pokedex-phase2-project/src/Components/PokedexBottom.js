@@ -8,7 +8,7 @@ import {FixedSizeList as List} from 'react-window';
 
 import "../index.css"
 
-function PokedexBottom({setPokeId}) {
+function PokedexBottom({setPokeId, pokeId}) {
     const [pokemonData, setPokemonData] = useState([]);
     
     //Search Aspects
@@ -36,16 +36,16 @@ function PokedexBottom({setPokeId}) {
     };
     
         return (
-            <div>
+            <BottomDiv pokeId={pokeId}>
                 <SearchBar search={search}/>
                 <div>
                 {filterPokemon.length ?
                             <List
                                 id="poke-list-parent"
                                 width={window.innerWidth}
-                                height={200}
+                                height={240}
                                 itemCount={filterPokemon.length}
-                                itemSize={450}
+                                itemSize={300}
                                 layout="horizontal"
                             >
                                 {individualPokemon}
@@ -53,7 +53,7 @@ function PokedexBottom({setPokeId}) {
                     :<h1>No Found Data</h1>
                 }
                 </div>
-            </div>
+            </BottomDiv>
         )
     // } else {
     //     return <>
@@ -73,4 +73,8 @@ const PokeScroller = styled.div `
     ::-webkit-scrollbar {
         display: none;
     }
+`
+
+const BottomDiv = styled.div `
+    margin-top: ${props => props.pokeId ? null : "480px"}
 `

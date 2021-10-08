@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import styled from "styled-components";
 
 function PokedexTop({pokeId, savePoke, setSavePoke, malePoke, femalePoke, genderlessPoke}) {
     //Gets the name from our db.json file
@@ -113,10 +114,10 @@ function PokedexTop({pokeId, savePoke, setSavePoke, malePoke, femalePoke, gender
         })
     }
 
-
+    console.log(pokeInfo)
     if (pokeInfo) {
         return (
-            <>
+            <div>
                 <div id="pokedex-info-container">
                     <div className="pokedex-info-box">
                         {pokeId} | {pokeName} <br/>
@@ -152,12 +153,16 @@ function PokedexTop({pokeId, savePoke, setSavePoke, malePoke, femalePoke, gender
                     </div>
                 </div>
                 <button id="add-to-team-button" disabled={savePoke.length === 6? true:false} onClick={addTeamHandler}>Add Pokémon to Team</button>
-                <hr /><br />
-            </>
+                <hr />
+            </div>
         );
     } else {
-        return null;
+        return null
     }
 }
 
 export default PokedexTop;
+
+const EmptyDiv = styled.div`
+    margin-bottom: 300px;
+`
