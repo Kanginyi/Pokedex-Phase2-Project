@@ -116,6 +116,7 @@ const PokeTeamContainer = styled.div(({selectedPokemon, pokeID}) =>
     &:hover {
         transform: scale(1.03);
     }
+    box-shadow: 10px 7.5px rgba(3, 3, 3, 0.15);
 `)
 
 const spriteMovement = keyframes`
