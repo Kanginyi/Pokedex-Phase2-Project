@@ -47,7 +47,7 @@ const Tooltip = styled.div`
         padding: .01rem;
         width: max-content;
         color:white;
-        max-width:600px;
+        max-width:400px;
         background: #333;
         border-radius: .3rem;
         text-align: center;
