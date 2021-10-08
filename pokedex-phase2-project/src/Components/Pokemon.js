@@ -36,7 +36,6 @@ const Pokemon = ({pokemon, setSelectedPokemon, selectedPokemon, setShowSummary, 
 
     const pokeGenerations = (Object.keys(pokeAPI.sprites.versions).filter(generation => "icons" in pokeAPI.sprites.versions[generation])).reverse()
     const spriteImg = pokeAPI.sprites.versions[pokeGenerations.find(generation => pokeAPI.sprites.versions[generation].icons.front_default)].icons.front_default
-    console.log(spriteImg)
     // const spriteImg = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-viii/icons/${pokemon.pokeID}.png`
 
 
