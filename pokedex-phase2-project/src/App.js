@@ -6,7 +6,7 @@ import PokemonContainer from "./Components/PokemonContainer"
 
 //Import Components
 import Homepage from "./Components/Homepage";
-import { Route, Switch, useRouteMatch} from "react-router-dom"
+import { Route, Switch} from "react-router-dom"
 import PokedexContainer from "./Components/PokedexContainer";
 
 function App() {
@@ -17,15 +17,13 @@ function App() {
         <Route exact path="/pokemon">
           <PokemonContainer />
         </Route>
+        <Route exact path="/pokedex">
+          <PokedexContainer />
+        </Route>
         <Route exact path="/">
           <Homepage />
         </Route>
       </Switch>
-
-      {/* Reroute and update component hierarchy */}
-      <hr />
-
-      <PokedexContainer />
     </div>
   );
 }

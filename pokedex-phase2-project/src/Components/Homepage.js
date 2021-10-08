@@ -19,7 +19,7 @@ function Homepage() {
             <br/><br/><br/><br/>
             <div id="homepage-container">
                 <div className="homepage-div">
-                    <u>Pokédex</u>
+                    <Link to={'/pokedex'}>Pokedex</Link>
                     <p className="homepage-text">A list of Pokemon in the order dictated by the National Pokédex. </p>
                 </div>
                 <div className="homepage-div">
