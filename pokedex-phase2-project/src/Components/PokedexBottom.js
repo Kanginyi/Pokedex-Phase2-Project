@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import Pokemon from './Pokemon';
+import PokemonItem from './PokemonItem';
 import SearchBar from './SearchBar';
 import styled from "styled-components";
 import {List, AutoSizer, CellMeasurer, CellMeasurerCache} from "react-virtualized";
@@ -43,7 +43,7 @@ function PokedexBottom({setPokeId}) {
 
                                     return (
                                         <div id="poke-list" key={key} style={style}>
-                                            <Pokemon id={pokemon.id} name={pokemon.name.eng} setPokeId={setPokeId}/>
+                                            <PokemonItem id={pokemon.id} name={pokemon.name.eng} setPokeId={setPokeId}/>
                                         </div>
                                     );
                                 }}
