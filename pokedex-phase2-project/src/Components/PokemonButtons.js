@@ -8,28 +8,21 @@ const PokemonButtons = ({setShowSummary, showSummary, selectedPokemon, setSavePo
 
     const onDeleteHandler = (pokemonID) => { //need to clean this 
 
-        setSelectedPokemon(selectedPokemon => {
-            return ({
-                ...selectedPokemon,
-                id: null,
-                pokeID: null,
-            })
-        })
-
         const deletedArray = [...savePoke].filter(pokemon => pokemon.id !== pokemonID)
-        const anotherArray = []
-
-        for (let i = 0; i < (deletedArray.length); i++) {
-            const newElement = {
-                ...deletedArray[i],
-                id: i+1}
-            anotherArray.push(newElement)
-        }
-
-        setSavePoke(anotherArray)
 
         fetch(`http://localhost:4000/team/${pokemonID}`, {
             method: "DELETE"
+        })
+        .then(resp => resp.json())
+        .then(() => {
+            setSavePoke(deletedArray)
+            setSelectedPokemon(selectedPokemon => {
+                return ({
+                    ...selectedPokemon,
+                    id: null,
+                    pokeID: null,
+                })
+            })
         })
         
     }

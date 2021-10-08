@@ -22,6 +22,8 @@ const PokemonContainer = ({savePoke, setSavePoke}) => {
         }
     }
 
+    console.log(selectedPokemon)
+
     return (
         <div>
             <PokemonListImageSummaryContainer>

@@ -14155,5 +14155,224 @@
       }
     }
   ],
-  "team": []
+  "team": [
+    {
+      "nickname": "Venusaur",
+      "dexID": 3,
+      "pokeID": 10186,
+      "level": 14,
+      "gender": "male",
+      "nature": "hardy",
+      "varieties": [
+        {
+          "is_default": true,
+          "pokemon": {
+            "name": "venusaur",
+            "url": "https://pokeapi.co/api/v2/pokemon/3/"
+          }
+        },
+        {
+          "is_default": false,
+          "pokemon": {
+            "name": "venusaur-mega",
+            "url": "https://pokeapi.co/api/v2/pokemon/10033/"
+          }
+        },
+        {
+          "is_default": false,
+          "pokemon": {
+            "name": "venusaur-gmax",
+            "url": "https://pokeapi.co/api/v2/pokemon/10186/"
+          }
+        }
+      ],
+      "IV": {
+        "hp": 30,
+        "attack": 4,
+        "defense": 13,
+        "specialAttack": 29,
+        "specialDefense": 25,
+        "speed": 12
+      },
+      "EV": {
+        "hp": 0,
+        "attack": 0,
+        "defense": 0,
+        "specialAttack": 0,
+        "specialDefense": 0,
+        "speed": 0
+      },
+      "id": 1
+    },
+    {
+      "nickname": "Bulbasaur",
+      "dexID": 1,
+      "pokeID": 1,
+      "level": 45,
+      "gender": "male",
+      "nature": "calm",
+      "varieties": [
+        {
+          "is_default": true,
+          "pokemon": {
+            "name": "bulbasaur",
+            "url": "https://pokeapi.co/api/v2/pokemon/1/"
+          }
+        }
+      ],
+      "IV": {
+        "hp": 26,
+        "attack": 9,
+        "defense": 23,
+        "specialAttack": 14,
+        "specialDefense": 13,
+        "speed": 23
+      },
+      "EV": {
+        "hp": 0,
+        "attack": 0,
+        "defense": 0,
+        "specialAttack": 0,
+        "specialDefense": 0,
+        "speed": 0
+      },
+      "id": 2
+    },
+    {
+      "nickname": "Victreebel",
+      "dexID": 71,
+      "pokeID": 71,
+      "level": 24,
+      "gender": "female",
+      "nature": "docile",
+      "varieties": [
+        {
+          "is_default": true,
+          "pokemon": {
+            "name": "victreebel",
+            "url": "https://pokeapi.co/api/v2/pokemon/71/"
+          }
+        }
+      ],
+      "IV": {
+        "hp": 16,
+        "attack": 19,
+        "defense": 14,
+        "specialAttack": 24,
+        "specialDefense": 23,
+        "speed": 25
+      },
+      "EV": {
+        "hp": 0,
+        "attack": 0,
+        "defense": 0,
+        "specialAttack": 0,
+        "specialDefense": 0,
+        "speed": 0
+      },
+      "id": 3
+    },
+    {
+      "nickname": "Scrafty",
+      "dexID": 560,
+      "pokeID": 560,
+      "level": 23,
+      "gender": "female",
+      "nature": "quiet",
+      "varieties": [
+        {
+          "is_default": true,
+          "pokemon": {
+            "name": "scrafty",
+            "url": "https://pokeapi.co/api/v2/pokemon/560/"
+          }
+        }
+      ],
+      "IV": {
+        "hp": 13,
+        "attack": 4,
+        "defense": 8,
+        "specialAttack": 7,
+        "specialDefense": 17,
+        "speed": 1
+      },
+      "EV": {
+        "hp": 0,
+        "attack": 0,
+        "defense": 0,
+        "specialAttack": 0,
+        "specialDefense": 0,
+        "speed": 0
+      },
+      "id": 4
+    },
+    {
+      "nickname": "Sylveon",
+      "dexID": 700,
+      "pokeID": 700,
+      "level": 100,
+      "gender": "male",
+      "nature": "serious",
+      "varieties": [
+        {
+          "is_default": true,
+          "pokemon": {
+            "name": "sylveon",
+            "url": "https://pokeapi.co/api/v2/pokemon/700/"
+          }
+        }
+      ],
+      "IV": {
+        "hp": 26,
+        "attack": 22,
+        "defense": 17,
+        "specialAttack": 14,
+        "specialDefense": 1,
+        "speed": 5
+      },
+      "EV": {
+        "hp": 0,
+        "attack": 0,
+        "defense": 0,
+        "specialAttack": 0,
+        "specialDefense": 0,
+        "speed": 0
+      },
+      "id": 5
+    },
+    {
+      "nickname": "Dragapult",
+      "dexID": 887,
+      "pokeID": 887,
+      "level": 32,
+      "gender": "male",
+      "nature": "adamant",
+      "varieties": [
+        {
+          "is_default": true,
+          "pokemon": {
+            "name": "dragapult",
+            "url": "https://pokeapi.co/api/v2/pokemon/887/"
+          }
+        }
+      ],
+      "IV": {
+        "hp": 26,
+        "attack": 10,
+        "defense": 15,
+        "specialAttack": 5,
+        "specialDefense": 7,
+        "speed": 29
+      },
+      "EV": {
+        "hp": 0,
+        "attack": 0,
+        "defense": 0,
+        "specialAttack": 0,
+        "specialDefense": 0,
+        "speed": 0
+      },
+      "id": 6
+    }
+  ]
 }

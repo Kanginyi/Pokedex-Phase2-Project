@@ -65,22 +65,20 @@ function PokedexTop({pokeId, savePoke, setSavePoke, malePoke, femalePoke, gender
     
 
     const addTeamHandler = () => {
-        const teamID = savePoke.length+1;
         //check genderless
         const genderless = genderlessPoke["pokemon_species_details"].find(pokemon => pokemon.pokemon_species.url === `https://pokeapi.co/api/v2/pokemon-species/${parseInt(pokeId)}/`) ? true:false;
-        const female = femalePoke["pokemon_species_details"].find(pokemon => pokemon.pokemon_species.url === `https://pokeapi.co/api/v2/pokemon-species/${parseInt(pokeId)}/`) ? true:false;
-        const male = malePoke["pokemon_species_details"].find(pokemon => pokemon.pokemon_species.url === `https://pokeapi.co/api/v2/pokemon-species/${parseInt(pokeId)}/`) ? true:false;
+        const female = femalePoke["pokemon_species_details"].find(pokemon => pokemon.pokemon_species.url === `https://pokeapi.co/api/v2/pokemon-species/${parseInt(pokeId)}/`)
+        const male = malePoke["pokemon_species_details"].find(pokemon => pokemon.pokemon_species.url === `https://pokeapi.co/api/v2/pokemon-species/${parseInt(pokeId)}/`) 
 
         const pokeGender = 
         female && !male ? "female" : 
         male && !female ? "male" : 
         !male && !female ?  null:
-        Math.round(Math.random()) === 1? "male":"female" 
+        (Math.round(Math.random() * 1001) <= female.rate/8*1000) ? "female":"male"
 
         const nature = ['hardy','lonely','brave','adamant','naughty','bold','docile','relaxed','impish','lax','timid','hasty','serious','jolly','naive','modest','mild','quiet','bashful','rash','calm','gentle','sassy','careful','quirky'][Math.floor(Math.random() * 25)]
 
         const pokeObj={
-            id : teamID,
             nickname : pokeName,
             dexID : parseInt(pokeId),
             pokeID: parseInt(pokeId),
@@ -105,8 +103,8 @@ function PokedexTop({pokeId, savePoke, setSavePoke, malePoke, femalePoke, gender
                 "speed": 0,
             }
         }
-        setSavePoke(savePoke => [...savePoke, pokeObj])
-        console.log(savePoke)
+        
+
         fetch('http://localhost:4000/team', {
             method: "POST",
             headers: {
@@ -114,6 +112,8 @@ function PokedexTop({pokeId, savePoke, setSavePoke, malePoke, femalePoke, gender
             },
             body: JSON.stringify(pokeObj)
         })
+        .then(resp => resp.json())
+        .then(data => setSavePoke(savePoke => [...savePoke, data]))
     }
 
  
