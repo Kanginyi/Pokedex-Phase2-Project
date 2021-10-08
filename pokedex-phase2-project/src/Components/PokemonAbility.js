@@ -11,9 +11,9 @@ const PokemonAbility = ({ability}) => {
     }, [ability])
 
     if (abilityAPI) {
-        const arrayAbilities = abilityAPI.effect_entries
+        const arrayAbilities = abilityAPI.flavor_text_entries
         return (
-            <Tooltip data-tooltip={arrayAbilities.length? arrayAbilities[1]["short_effect"].slice(0, -1) : null}>
+            <Tooltip data-tooltip={arrayAbilities.length? (arrayAbilities.find(element => element.language.name === 'en')).flavor_text.slice(0,-1) : null}>
                 {ability.slice(0,1).toUpperCase() + ability.slice(1)}
             </Tooltip>
         )
@@ -47,7 +47,7 @@ const Tooltip = styled.div`
         padding: .01rem;
         width: max-content;
         color:white;
-        max-width:350px;
+        max-width:600px;
         background: #333;
         border-radius: .3rem;
         text-align: center;

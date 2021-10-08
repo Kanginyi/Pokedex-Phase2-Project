@@ -14158,46 +14158,142 @@
   "team": [
     {
       "id": 1,
-      "nickname": "Moose",
-      "dexID": 835,
-      "pokeID": 835,
-      "level": 100,
-      "gender": "male",
-      "nature": "bold",
+      "nickname": "Bulbasaur",
+      "dexID": 1,
+      "pokeID": 1,
+      "level": 59,
+      "gender": "female",
+      "nature": "jolly",
       "varieties": [
         {
           "is_default": true,
           "pokemon": {
-            "name": "yamper",
-            "url": "https://pokeapi.co/api/v2/pokemon/835/"
+            "name": "bulbasaur",
+            "url": "https://pokeapi.co/api/v2/pokemon/1/"
           }
         }
       ],
       "IV": {
-        "hp": 31,
-        "attack": 31,
-        "defense": 31,
-        "specialAttack": 31,
-        "specialDefense": 31,
+        "hp": 0,
+        "attack": 3,
+        "defense": 26,
+        "specialAttack": 12,
+        "specialDefense": 12,
         "speed": 31
       },
       "EV": {
-        "hp": 252,
-        "attack": 6,
+        "hp": 0,
+        "attack": 0,
         "defense": 0,
         "specialAttack": 0,
         "specialDefense": 0,
-        "speed": 252
+        "speed": 0
       }
     },
     {
       "id": 2,
+      "nickname": "Charizard",
+      "dexID": 6,
+      "pokeID": 6,
+      "level": 88,
+      "gender": "female",
+      "nature": "jolly",
+      "varieties": [
+        {
+          "is_default": true,
+          "pokemon": {
+            "name": "charizard",
+            "url": "https://pokeapi.co/api/v2/pokemon/6/"
+          }
+        },
+        {
+          "is_default": false,
+          "pokemon": {
+            "name": "charizard-mega-x",
+            "url": "https://pokeapi.co/api/v2/pokemon/10034/"
+          }
+        },
+        {
+          "is_default": false,
+          "pokemon": {
+            "name": "charizard-mega-y",
+            "url": "https://pokeapi.co/api/v2/pokemon/10035/"
+          }
+        },
+        {
+          "is_default": false,
+          "pokemon": {
+            "name": "charizard-gmax",
+            "url": "https://pokeapi.co/api/v2/pokemon/10187/"
+          }
+        }
+      ],
+      "IV": {
+        "hp": 8,
+        "attack": 6,
+        "defense": 27,
+        "specialAttack": 18,
+        "specialDefense": 7,
+        "speed": 15
+      },
+      "EV": {
+        "hp": 0,
+        "attack": 0,
+        "defense": 0,
+        "specialAttack": 0,
+        "specialDefense": 0,
+        "speed": 0
+      }
+    },
+    {
+      "id": 3,
+      "nickname": "Pidgeot",
+      "dexID": 18,
+      "pokeID": 18,
+      "level": 29,
+      "gender": "female",
+      "nature": "docile",
+      "varieties": [
+        {
+          "is_default": true,
+          "pokemon": {
+            "name": "pidgeot",
+            "url": "https://pokeapi.co/api/v2/pokemon/18/"
+          }
+        },
+        {
+          "is_default": false,
+          "pokemon": {
+            "name": "pidgeot-mega",
+            "url": "https://pokeapi.co/api/v2/pokemon/10073/"
+          }
+        }
+      ],
+      "IV": {
+        "hp": 13,
+        "attack": 2,
+        "defense": 20,
+        "specialAttack": 14,
+        "specialDefense": 4,
+        "speed": 25
+      },
+      "EV": {
+        "hp": 0,
+        "attack": 0,
+        "defense": 0,
+        "specialAttack": 0,
+        "specialDefense": 0,
+        "speed": 0
+      }
+    },
+    {
+      "id": 4,
       "nickname": "Groudon",
       "dexID": 383,
-      "pokeID": 10078,
-      "level": 100,
-      "gender": "female",
-      "nature": "adamant",
+      "pokeID": 383,
+      "level": 25,
+      "gender": null,
+      "nature": "docile",
       "varieties": [
         {
           "is_default": true,
@@ -14215,30 +14311,71 @@
         }
       ],
       "IV": {
-        "hp": 31,
-        "attack": 31,
-        "defense": 31,
-        "specialAttack": 31,
-        "specialDefense": 31,
-        "speed": 31
+        "hp": 1,
+        "attack": 29,
+        "defense": 22,
+        "specialAttack": 17,
+        "specialDefense": 19,
+        "speed": 17
       },
       "EV": {
-        "hp": 252,
-        "attack": 252,
+        "hp": 0,
+        "attack": 0,
         "defense": 0,
         "specialAttack": 0,
         "specialDefense": 0,
-        "speed": 6
+        "speed": 0
       }
     },
     {
-      "id": 3,
+      "id": 5,
+      "nickname": "Kyogre",
+      "dexID": 382,
+      "pokeID": 382,
+      "level": 84,
+      "gender": null,
+      "nature": "relaxed",
+      "varieties": [
+        {
+          "is_default": true,
+          "pokemon": {
+            "name": "kyogre",
+            "url": "https://pokeapi.co/api/v2/pokemon/382/"
+          }
+        },
+        {
+          "is_default": false,
+          "pokemon": {
+            "name": "kyogre-primal",
+            "url": "https://pokeapi.co/api/v2/pokemon/10077/"
+          }
+        }
+      ],
+      "IV": {
+        "hp": 7,
+        "attack": 21,
+        "defense": 19,
+        "specialAttack": 27,
+        "specialDefense": 31,
+        "speed": 7
+      },
+      "EV": {
+        "hp": 0,
+        "attack": 0,
+        "defense": 0,
+        "specialAttack": 0,
+        "specialDefense": 0,
+        "speed": 0
+      }
+    },
+    {
+      "id": 6,
       "nickname": "Mewtwo",
       "dexID": 150,
-      "pokeID": 10043,
-      "level": 50,
-      "gender": "male",
-      "nature": "hardy",
+      "pokeID": 150,
+      "level": 33,
+      "gender": null,
+      "nature": "quirky",
       "varieties": [
         {
           "is_default": true,
@@ -14263,233 +14400,12 @@
         }
       ],
       "IV": {
-        "hp": 20,
-        "attack": 15,
-        "defense": 15,
-        "specialAttack": 10,
-        "specialDefense": 10,
-        "speed": 15
-      },
-      "EV": {
-        "hp": 0,
-        "attack": 0,
-        "defense": 0,
-        "specialAttack": 0,
-        "specialDefense": 0,
-        "speed": 0
-      }
-    },
-    {
-      "id": 4,
-      "nickname": "Gengar",
-      "dexID": 94,
-      "pokeID": 10038,
-      "level": 50,
-      "gender": "male",
-      "nature": "hardy",
-      "varieties": [
-        {
-          "is_default": true,
-          "pokemon": {
-            "name": "gengar",
-            "url": "https://pokeapi.co/api/v2/pokemon/94/"
-          }
-        },
-        {
-          "is_default": false,
-          "pokemon": {
-            "name": "gengar-mega",
-            "url": "https://pokeapi.co/api/v2/pokemon/10038/"
-          }
-        },
-        {
-          "is_default": false,
-          "pokemon": {
-            "name": "gengar-gmax",
-            "url": "https://pokeapi.co/api/v2/pokemon/10193/"
-          }
-        }
-      ],
-      "IV": {
-        "hp": 20,
-        "attack": 15,
-        "defense": 15,
-        "specialAttack": 10,
-        "specialDefense": 10,
-        "speed": 15
-      },
-      "EV": {
-        "hp": 0,
-        "attack": 0,
-        "defense": 0,
-        "specialAttack": 0,
-        "specialDefense": 0,
-        "speed": 0
-      }
-    },
-    {
-      "id": 5,
-      "nickname": "Rayquaza",
-      "dexID": 384,
-      "pokeID": 10079,
-      "level": 100,
-      "gender": "male",
-      "nature": "modest",
-      "varieties": [
-        {
-          "is_default": true,
-          "pokemon": {
-            "name": "rayquaza",
-            "url": "https://pokeapi.co/api/v2/pokemon/384/"
-          }
-        },
-        {
-          "is_default": false,
-          "pokemon": {
-            "name": "rayquaza-mega",
-            "url": "https://pokeapi.co/api/v2/pokemon/10079/"
-          }
-        }
-      ],
-      "IV": {
-        "hp": 20,
-        "attack": 15,
-        "defense": 15,
-        "specialAttack": 10,
-        "specialDefense": 10,
-        "speed": 15
-      },
-      "EV": {
-        "hp": 0,
-        "attack": 0,
-        "defense": 0,
-        "specialAttack": 0,
-        "specialDefense": 0,
-        "speed": 0
-      }
-    },
-    {
-      "id": 6,
-      "nickname": "An",
-      "dexID": 25,
-      "pokeID": 10082,
-      "level": 50,
-      "gender": "male",
-      "nature": "modest",
-      "varieties": [
-        {
-          "is_default": true,
-          "pokemon": {
-            "name": "pikachu",
-            "url": "https://pokeapi.co/api/v2/pokemon/25/"
-          }
-        },
-        {
-          "is_default": false,
-          "pokemon": {
-            "name": "pikachu-rock-star",
-            "url": "https://pokeapi.co/api/v2/pokemon/10080/"
-          }
-        },
-        {
-          "is_default": false,
-          "pokemon": {
-            "name": "pikachu-belle",
-            "url": "https://pokeapi.co/api/v2/pokemon/10081/"
-          }
-        },
-        {
-          "is_default": false,
-          "pokemon": {
-            "name": "pikachu-pop-star",
-            "url": "https://pokeapi.co/api/v2/pokemon/10082/"
-          }
-        },
-        {
-          "is_default": false,
-          "pokemon": {
-            "name": "pikachu-phd",
-            "url": "https://pokeapi.co/api/v2/pokemon/10083/"
-          }
-        },
-        {
-          "is_default": false,
-          "pokemon": {
-            "name": "pikachu-libre",
-            "url": "https://pokeapi.co/api/v2/pokemon/10084/"
-          }
-        },
-        {
-          "is_default": false,
-          "pokemon": {
-            "name": "pikachu-cosplay",
-            "url": "https://pokeapi.co/api/v2/pokemon/10085/"
-          }
-        },
-        {
-          "is_default": false,
-          "pokemon": {
-            "name": "pikachu-original-cap",
-            "url": "https://pokeapi.co/api/v2/pokemon/10094/"
-          }
-        },
-        {
-          "is_default": false,
-          "pokemon": {
-            "name": "pikachu-hoenn-cap",
-            "url": "https://pokeapi.co/api/v2/pokemon/10095/"
-          }
-        },
-        {
-          "is_default": false,
-          "pokemon": {
-            "name": "pikachu-sinnoh-cap",
-            "url": "https://pokeapi.co/api/v2/pokemon/10096/"
-          }
-        },
-        {
-          "is_default": false,
-          "pokemon": {
-            "name": "pikachu-unova-cap",
-            "url": "https://pokeapi.co/api/v2/pokemon/10097/"
-          }
-        },
-        {
-          "is_default": false,
-          "pokemon": {
-            "name": "pikachu-kalos-cap",
-            "url": "https://pokeapi.co/api/v2/pokemon/10098/"
-          }
-        },
-        {
-          "is_default": false,
-          "pokemon": {
-            "name": "pikachu-alola-cap",
-            "url": "https://pokeapi.co/api/v2/pokemon/10099/"
-          }
-        },
-        {
-          "is_default": false,
-          "pokemon": {
-            "name": "pikachu-partner-cap",
-            "url": "https://pokeapi.co/api/v2/pokemon/10148/"
-          }
-        },
-        {
-          "is_default": false,
-          "pokemon": {
-            "name": "pikachu-gmax",
-            "url": "https://pokeapi.co/api/v2/pokemon/10190/"
-          }
-        }
-      ],
-      "IV": {
-        "hp": 20,
-        "attack": 15,
-        "defense": 15,
-        "specialAttack": 10,
-        "specialDefense": 10,
-        "speed": 15
+        "hp": 11,
+        "attack": 31,
+        "defense": 14,
+        "specialAttack": 31,
+        "specialDefense": 6,
+        "speed": 30
       },
       "EV": {
         "hp": 0,

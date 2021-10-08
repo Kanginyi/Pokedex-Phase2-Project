@@ -166,29 +166,29 @@ const PokemonModify = ({setSavePoke, hlPokemon, savePoke, setSelectedPokemon}) =
                 <IVEVtag>IV</IVEVtag>
                 <IVEVdiv>
                     <label> HP </label>
-                    <input type="range" min="1" max="31" value={formData.ivHp} name="ivHp" onChange={onChangeHandler}/>
+                    <input type="range" min="0" max="31" value={formData.ivHp} name="ivHp" onChange={onChangeHandler}/>
                     <label>{formData.ivHp}</label>
 
                     <label> SPD </label>
-                    <input type="range" min="1" max="31" value={formData.ivSpeed} name="ivSpeed" onChange={onChangeHandler}/>
+                    <input type="range" min="0" max="31" value={formData.ivSpeed} name="ivSpeed" onChange={onChangeHandler}/>
                     <label>{formData.ivSpeed}</label>
                 </IVEVdiv>
                 <IVEVdiv>
                     <label> ATK </label>
-                    <input type="range" min="1" max="31" value={formData.ivAttack} name="ivAttack" onChange={onChangeHandler}/>
+                    <input type="range" min="0" max="31" value={formData.ivAttack} name="ivAttack" onChange={onChangeHandler}/>
                     <label>{formData.ivAttack}</label>
 
                     <label> DEF </label>
-                    <input type="range" min="1" max="31" value={formData.ivDefense} name="ivDefense" onChange={onChangeHandler}/>
+                    <input type="range" min="0" max="31" value={formData.ivDefense} name="ivDefense" onChange={onChangeHandler}/>
                     <label>{formData.ivDefense}</label>
                 </IVEVdiv>
                 <IVEVdiv>
                     <label> SP. ATK </label>
-                    <input type="range" min="1" max="31" value={formData.ivSpecialAttack} name="ivSpecialAttack" onChange={onChangeHandler}/>
+                    <input type="range" min="0" max="31" value={formData.ivSpecialAttack} name="ivSpecialAttack" onChange={onChangeHandler}/>
                     <label>{formData.ivSpecialAttack}</label>
 
                     <label> SP. DEF </label>
-                    <input type="range" min="1" max="31" value={formData.ivSpecialDefense} name="ivSpecialDefense" onChange={onChangeHandler}/>
+                    <input type="range" min="0" max="31" value={formData.ivSpecialDefense} name="ivSpecialDefense" onChange={onChangeHandler}/>
                     <label>{formData.ivSpecialDefense}</label>
                 </IVEVdiv>
                 <IVEVtag>EV</IVEVtag>

@@ -7,14 +7,13 @@ import PokemonSummary from './PokemonSummary'
 import styled from 'styled-components'
 
 
-const PokemonContainer = () => {
+const PokemonContainer = ({savePoke, setSavePoke}) => {
 
     const [highestStat, setHighestStat] = useState(0)
     const [selectedPokemon, setSelectedPokemon] = useState({
         id: null,
         pokeID: null //use this number for end of url
     })
-    const [savePoke, setSavePoke] = useState([])
     const [showSummary, setShowSummary] = useState(false)
     
     const changeHighestStat = (num) => {
@@ -22,17 +21,6 @@ const PokemonContainer = () => {
             setHighestStat(num)
         }
     }
-
-    useEffect(() => {
-        fetch("http://localhost:4000/team")
-        .then(resp => resp.json())
-        .then(data => {
-            if (data.length > 0) {
-                setSavePoke(data)
-            }
-        })
-
-    }, [])
 
     return (
         <div>
