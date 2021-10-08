@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Pokemon from './Pokemon'
 import PokemonHeader from './PokemonHeader'
 import PokemonButtons from './PokemonButtons'
@@ -14,6 +14,7 @@ const PokemonContainer = () => {
         id: null,
         pokeID: null //use this number for end of url
     })
+    const [savePoke, setSavePoke] = useState([])
     const [showSummary, setShowSummary] = useState(false)
     
     const changeHighestStat = (num) => {
@@ -22,155 +23,11 @@ const PokemonContainer = () => {
         }
     }
 
-
-    
-    ///CHANGE THIS LATER FOR JSON FILE
-    const [savePoke, setSavePoke] = useState([
-        {
-            id: 1,
-            nickname: "A",
-            pokeID: 835,
-            level: 50,
-            gender: "male",
-            nature: "hardy",
-            IV: {
-                hp: 20,
-                attack: 15,
-                defense: 15,
-                specialAttack: 10,
-                specialDefense:10,
-                speed: 15,
-            },
-            EV: {
-                hp: 0,
-                attack: 0,
-                defense: 0,
-                specialAttack: 0,
-                specialDefense:0,
-                speed: 0,
-            }
-        },
-        {
-            id: 2,
-            nickname: "B",
-            pokeID: 10078,
-            level: 50,
-            gender: "female",
-            nature: "hardy",
-            IV: {
-                hp: 20,
-                attack: 15,
-                defense: 15,
-                specialAttack: 10,
-                specialDefense:10,
-                speed: 15,
-            },
-            EV: {
-                hp: 0,
-                attack: 0,
-                defense: 0,
-                specialAttack: 0,
-                specialDefense:0,
-                speed: 0,
-            }
-        },
-        {
-            id: 3,
-            nickname: "C",
-            pokeID: 150,
-            level: 50,
-            gender: "male",
-            nature: "hardy",
-            IV: {
-                hp: 20,
-                attack: 15,
-                defense: 15,
-                specialAttack: 10,
-                specialDefense:10,
-                speed: 15,
-            },
-            EV: {
-                hp: 0,
-                attack: 0,
-                defense: 0,
-                specialAttack: 0,
-                specialDefense:0,
-                speed: 0,
-            }
-        },
-        {
-            id: 4,
-            nickname: "D",
-            pokeID: 10007,
-            level: 50,
-            gender: "male",
-            nature: "hardy",
-            IV: {
-                hp: 20,
-                attack: 15,
-                defense: 15,
-                specialAttack: 10,
-                specialDefense:10,
-                speed: 15,
-            },
-            EV: {
-                hp: 0,
-                attack: 0,
-                defense: 0,
-                specialAttack: 0,
-                specialDefense:0,
-                speed: 0,
-            }
-        },
-        {
-            id: 5,
-            nickname: "E",
-            pokeID: 10079,
-            level: 50,
-            gender: "male",
-            nature: "hardy",
-            IV: {
-                hp: 20,
-                attack: 15,
-                defense: 15,
-                specialAttack: 10,
-                specialDefense:10,
-                speed: 15,
-            },
-            EV: {
-                hp: 0,
-                attack: 0,
-                defense: 0,
-                specialAttack: 0,
-                specialDefense:0,
-                speed: 0,
-            }
-        },
-        {
-            id: 6,
-            nickname: "F",
-            pokeID: 10044,
-            level: 50,
-            gender: "male",
-            nature: "hardy",
-            IV: {
-                hp: 20,
-                attack: 15,
-                defense: 15,
-                specialAttack: 10,
-                specialDefense:10,
-                speed: 15,
-            },
-            EV: {
-                hp: 0,
-                attack: 0,
-                defense: 0,
-                specialAttack: 0,
-                specialDefense:0,
-                speed: 0,
-            }
-        },
-    ])
+    useEffect(() => {
+        fetch("http://localhost:4000/team")
+        .then(resp => resp.json())
+        .then(data => setSavePoke(data))
+    }, [])
 
     return (
         <div>
@@ -183,10 +40,10 @@ const PokemonContainer = () => {
                     {selectedPokemon.pokeID? <PokemonImage pokeID={selectedPokemon.pokeID}/> : null}
                 </NormDiv>
                 <SkewRightDiv>
-                    {showSummary ? <PokemonSummary highestStat={highestStat} savePoke={savePoke} setSavePoke={setSavePoke} selectedPokemon={selectedPokemon} hlPokemon={savePoke.find(pokemon => pokemon.id === selectedPokemon.id)}/> : null}
+                    {showSummary ? <PokemonSummary setSelectedPokemon={setSelectedPokemon} highestStat={highestStat} savePoke={savePoke} setSavePoke={setSavePoke} selectedPokemon={selectedPokemon} hlPokemon={savePoke.find(pokemon => pokemon.id === selectedPokemon.id)}/> : null}
                 </SkewRightDiv>
             </PokemonListImageSummaryContainer>
-            <PokemonButtons setShowSummary={setShowSummary} showSummary={showSummary} selectedPokemon={selectedPokemon}/>
+            <PokemonButtons setShowSummary={setShowSummary} showSummary={showSummary} selectedPokemon={selectedPokemon} setSavePoke={setSavePoke} setSelectedPokemon={setSelectedPokemon} savePoke={savePoke}/>
         </div>
     )
 }
@@ -200,14 +57,14 @@ const PokemonListImageSummaryContainer = styled.div`
 
 const SkewLeftDiv = styled.div`
     margin-top: 20px;
-    transform: skew( 0deg, 175deg);
+    // transform: skew( 0deg, 175deg);
     transition: all .5s;
 `
 
 const SkewRightDiv = styled.div`
-    margin-top: 136px;
+    margin-top: 120px;
     margin-left: 60px;
-    transform: skew( 0deg, 5deg);
+    // transform: skew( 0deg, 5deg);
     transition: all .5s;
 `
 

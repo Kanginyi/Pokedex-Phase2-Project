@@ -26,7 +26,7 @@ import bug from '../Poketypes/bug.png'
 //
 import "../tabs.css"
 
-const PokemonSummary = ({hlPokemon, selectedPokemon, setSavePoke, savePoke, highestStat}) => {
+const PokemonSummary = ({hlPokemon, selectedPokemon, setSavePoke, savePoke, highestStat, setSelectedPokemon}) => {
     const [toggleState, setToggleState] = useState(1)
     const [pokeAPI, setPokeAPI] = useState(null)
 
@@ -126,7 +126,7 @@ const PokemonSummary = ({hlPokemon, selectedPokemon, setSavePoke, savePoke, high
                 </div>
 
                 <div className={toggleState === 3 ? "content  active-content" : "content"}>
-                    <PokemonModify setSavePoke={setSavePoke} hlPokemon={hlPokemon} savePoke={savePoke}/>
+                    <PokemonModify setSavePoke={setSavePoke} hlPokemon={hlPokemon} savePoke={savePoke} setSelectedPokemon={setSelectedPokemon} />
                 </div>
             </div>
         </div>

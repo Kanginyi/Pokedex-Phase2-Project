@@ -1,14 +1,18 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
+import Popup from 'reactjs-popup'
+import PokemonChangeForms from './PokemonChangeForms'
 
-const PokemonModify = ({setSavePoke, hlPokemon, savePoke}) => {
+const PokemonModify = ({setSavePoke, hlPokemon, savePoke, setSelectedPokemon}) => {
     const [formData, setFormData] = useState({
         id: '',
         nickname: '',
+        dexID: '',
         pokeID: '',
         level: '',
         gender: '',
         nature: '',
+        varieties: [],
         ivHp: '',
         ivAttack: '',
         ivDefense: '',
@@ -29,10 +33,12 @@ const PokemonModify = ({setSavePoke, hlPokemon, savePoke}) => {
             ...formData,
             id: hlPokemon.id,
             nickname: hlPokemon.nickname,
+            dexID: hlPokemon.dexID,
             pokeID: hlPokemon.pokeID,
             level: hlPokemon.level,
             gender: hlPokemon.gender,
             nature: hlPokemon.nature,
+            varieties: hlPokemon.varieties,
             ivHp: hlPokemon.IV.hp,
             ivAttack: hlPokemon.IV.attack,
             ivDefense: hlPokemon.IV.defense,
@@ -55,26 +61,17 @@ const PokemonModify = ({setSavePoke, hlPokemon, savePoke}) => {
         })
     }
 
-    const onRangeHandler = (event) => {
-        const evSum = formData.evHp + formData.evAttack + formData.evDefense + formData.evSpecialAttack + formData.evSpecialDefense + formData.evSpeed;
-        if (evSum < 510) {
-            setFormData({
-                ...formData,
-                [event.target.name] : event.target.value
-            })
-        }
-    }
-
-
     const onSubmitHandler = (event) => {
         event.preventDefault()
         const newData = {
             id: parseInt(formData.id),
             nickname: formData.nickname,
+            dexID: parseInt(formData.dexID),
             pokeID: parseInt(formData.pokeID),
             level: parseInt(formData.level),
             gender: formData.gender,
             nature: formData.nature,
+            varieties: formData.varieties,
             IV: {
                 hp: parseInt(formData.ivHp),
                 attack: parseInt(formData.ivAttack),
@@ -97,47 +94,74 @@ const PokemonModify = ({setSavePoke, hlPokemon, savePoke}) => {
         const copySavePoke = [...savePoke]
         copySavePoke[index] = newData
         setSavePoke(copySavePoke)
+        setSelectedPokemon(selectedPokemon => {
+            return ({
+                ...selectedPokemon,
+                id: newData.id,
+                pokeID: newData.pokeID,
+            })
+        })
+
+        fetch(`http://localhost:4000/team/${newData.id}`, {
+            method: 'PATCH',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newData)
+        })
         }
+
 
     return (
         <div>
             <form onSubmit={onSubmitHandler}>
                 <SectionDiv>
                     <label >Nickname: </label>
-                    <input type="search" value={formData.nickname} name="nickname" onChange={onChangeHandler}></input>
+                    <input type="search" required="required" value={formData.nickname} name="nickname" onChange={onChangeHandler}></input>
                     <label>Level: </label>
-                    <Numberinput type="number" value={formData.level} name="level" onChange={onChangeHandler}></Numberinput>
+                    <Numberinput type="number" value={formData.level} name="level" min={1} max={100} onChange={onChangeHandler}></Numberinput>
                 </SectionDiv>
-                <div>
-                    <label >Nature: </label> 
-                    <select name="nature">
-                        <option value="hardy">Hardy</option>
-                        <option value="lonely">Lonely</option>
-                        <option value="brave">Brave</option>
-                        <option value="adamant">Adamant</option>
-                        <option value="naughty">Naughty</option>
-                        <option value="bold">Bold</option>
-                        <option value="docile">Docile</option>
-                        <option value="relaxed">Relaxed</option>
-                        <option value="impish">Impish</option>
-                        <option value="lax">Lax</option>
-                        <option value="timid">Timid</option>
-                        <option value="hasty">Hasty</option>
-                        <option value="serious">Serious</option>
-                        <option value="jolly">Jolly</option>
-                        <option value="naive">Naive</option>
-                        <option value="modest">Modest</option>
-                        <option value="mild">Mild</option>
-                        <option value="quiet">Quiet</option>
-                        <option value="bashful">Bashful</option>
-                        <option value="rash">Rash</option>
-                        <option value="calm">Calm</option>
-                        <option value="gentle">Gentle</option>
-                        <option value="sassy">Sassy</option>
-                        <option value="careful">Careful</option>
-                        <option value="quirky">Quirky</option>
-                    </select>
-                </div>
+                <NatureForm>
+                    <NatureDiv>
+                        <label >Nature: </label> 
+                        <select name="nature" onChange={onChangeHandler}>
+                            <option value="hardy">Hardy</option>
+                            <option value="lonely">Lonely</option>
+                            <option value="brave">Brave</option>
+                            <option value="adamant">Adamant</option>
+                            <option value="naughty">Naughty</option>
+                            <option value="bold">Bold</option>
+                            <option value="docile">Docile</option>
+                            <option value="relaxed">Relaxed</option>
+                            <option value="impish">Impish</option>
+                            <option value="lax">Lax</option>
+                            <option value="timid">Timid</option>
+                            <option value="hasty">Hasty</option>
+                            <option value="serious">Serious</option>
+                            <option value="jolly">Jolly</option>
+                            <option value="naive">Naive</option>
+                            <option value="modest">Modest</option>
+                            <option value="mild">Mild</option>
+                            <option value="quiet">Quiet</option>
+                            <option value="bashful">Bashful</option>
+                            <option value="rash">Rash</option>
+                            <option value="calm">Calm</option>
+                            <option value="gentle">Gentle</option>
+                            <option value="sassy">Sassy</option>
+                            <option value="careful">Careful</option>
+                            <option value="quirky">Quirky</option>
+                        </select>
+                    </NatureDiv>
+                    <Popup
+                        modal
+                        nested
+                        trigger={<FormButton varietiesLength={hlPokemon.varieties.length} disabled={hlPokemon.varieties.length > 1 ? false : true}> Change Form</FormButton>}
+                    >
+                        <Modal>
+                            {hlPokemon.varieties.map(pokeObj => <PokemonChangeForms key={pokeObj.pokemon.url} pokeObj={pokeObj} setFormData={setFormData}/>)}
+                        </Modal>
+                    </Popup>
+                </NatureForm>
                 <hr/>
                 <IVEVtag>IV</IVEVtag>
                 <IVEVdiv>
@@ -195,13 +219,45 @@ const PokemonModify = ({setSavePoke, hlPokemon, savePoke}) => {
                     <input type="range" min="0" max="252" value={formData.evSpecialDefense} name="evSpecialDefense" onChange={onChangeHandler}/>
                     <label>{formData.evSpecialDefense}</label>
                 </IVEVdiv>
-                <input type="submit" value="Update" />
+                <Tooltip data-tooltip={(parseInt(formData.evHp) + parseInt(formData.evAttack) + parseInt(formData.evDefense) + parseInt(formData.evSpecialAttack) + parseInt(formData.evSpecialDefense) + parseInt(formData.evSpeed)) > 510? "EV total must be at least below 510" : null} >
+                    <input type="submit" value="Update" disabled={(parseInt(formData.evHp) + parseInt(formData.evAttack) + parseInt(formData.evDefense) + parseInt(formData.evSpecialAttack) + parseInt(formData.evSpecialDefense) + parseInt(formData.evSpeed)) > 510? true : false}/>
+                </Tooltip>
             </form>
         </div>
     )
 }
 
 export default PokemonModify
+
+const Modal = styled.div`
+    font-size: 40px;
+    max-width:900px;
+    background-color: #e5e5e5;
+    border: 2px solid black;
+    border-radius: 25px;
+    size: b5;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    overflow-x: auto;
+    align-items: center;
+    justify-content: space-between;
+`
+
+const NatureForm = styled.div`
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 15px;
+`
+const FormButton = styled.button`
+    border: ${props => props.varietiesLength > 0 ? '1px solid black': null};
+    opacity: ${props => props.varietiesLength > 0 ? 1: 0.3};
+`
+
+const NatureDiv = styled.div`
+    display: flex;
+`
 
 const IVEVtag = styled.h5`
     margin: 5px;
@@ -218,5 +274,42 @@ const Numberinput = styled.input`
 
 const IVEVdiv = styled.div`
     height: 50px;
-    font-size: 20px
+    font-size: 18px
+`
+
+const Tooltip = styled.div`
+    position: relative;
+    &:before, :after {
+        --scale: 0;
+        --arrow-size: 10px;
+        --tooltip-color: #333;
+        position: absolute;
+        top: -0.25rem;
+        left: 50%;
+        transform: translateX(-50%) translateY(var(--translate-y, 0)) scale(var(--scale));
+        transition: 50ms transform;
+        transform-origin: bottom center;
+    }
+    &:before {
+        --translate-y: calc(-100% - var(--arrow-size));
+        content: attr(data-tooltip);
+        padding: .01rem;
+        width: max-content;
+        color:white;
+        max-width:333px;
+        background: #333;
+        border-radius: .3rem;
+        text-align: center;
+    }
+    &:hover:before, :hover:after  {
+        --scale: 1;
+    }
+    &after {
+        --translate-y: calc(-1 * var(--arrow-size)):
+
+        content: '';
+        border: var(--arrow-size) transparent;
+        border-top-color: var(--tooltip-color);
+        transform-origin: top-center
+    }
 `

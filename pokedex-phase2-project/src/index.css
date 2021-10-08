@@ -74,4 +74,20 @@ code {
 /* Homepage Styling End */
 
 
-
+/* .modal > .header {
+  border-bottom: 1px solid gray;
+  font-size: 18px;
+  text-align: center;
+  padding: 5px;
+  background-color: #e5e5e5;
+} */
+/* .modal > .content {
+  width: 100%;
+  padding: 10px 5px;
+}
+.modal > .actions {
+  width: 100%;
+  padding: 10px 5px;
+  margin: auto;
+  text-align: center;
+} */

@@ -8,7 +8,7 @@ const Pokemon = ({pokemon, setSelectedPokemon, selectedPokemon, setShowSummary, 
         fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.pokeID}`)
         .then(resp => resp.json())
         .then(data => (setPokeAPI(data)))
-    }, [])
+    }, [pokemon])
 
     if (pokeAPI) {
     
@@ -34,9 +34,10 @@ const Pokemon = ({pokemon, setSelectedPokemon, selectedPokemon, setShowSummary, 
     
     changeHighestStat(Math.max(hp, attack, defense, specAttack, specDefense, speed))
 
-    // const pokeGenerations = (Object.keys(pokeAPI.sprites.versions).filter(generation => "icons" in pokeAPI.sprites.versions[generation])).reverse()
-    // const spriteImg = pokeAPI.sprites.versions[pokeGenerations.find(generation => pokeAPI.sprites.versions[generation].icons.front_default)].icons.front_default
-    const spriteImg = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-viii/icons/${pokemon.pokeID}.png`
+    const pokeGenerations = (Object.keys(pokeAPI.sprites.versions).filter(generation => "icons" in pokeAPI.sprites.versions[generation])).reverse()
+    const spriteImg = pokeAPI.sprites.versions[pokeGenerations.find(generation => pokeAPI.sprites.versions[generation].icons.front_default)].icons.front_default
+    console.log(spriteImg)
+    // const spriteImg = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-viii/icons/${pokemon.pokeID}.png`
 
 
     const onClickHandler = () => {
@@ -104,8 +105,8 @@ const PokeTeamContainer = styled.div(({selectedPokemon, pokeID}) =>
     border: 5px hidden;
     width: 315px;
     border-radius: 50px;
-    background: ${selectedPokemon === pokeID ? "black":"white"};
-    color:  ${selectedPokemon === pokeID ? "white":"black"};
+    background: ${selectedPokemon === pokeID ? "black":"#f8ffff"};
+    color:  ${selectedPokemon === pokeID ? "#f8ffff":"black"};
     padding: 2px;
     margin-left: 42px;
     margin-top: 15px;
