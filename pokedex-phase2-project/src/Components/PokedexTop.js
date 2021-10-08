@@ -56,6 +56,12 @@ function PokedexTop({pokeId}) {
         return words.map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
     }
 
+    const handleClick = (e) => {
+        e.preventDefault();
+
+        console.log("fuck");
+    }
+
     if (pokeInfo) {
         return (
             <>
@@ -93,7 +99,7 @@ function PokedexTop({pokeId}) {
                         <p><strong>Description: </strong>{pokeDesc}</p>
                     </div>
                 </div>
-                <button id="add-to-team-button">Add Pokémon to Team</button>
+                <button onClick={handleClick} id="add-to-team-button">Add Pokémon to Team</button>
                 <hr /><br />
             </>
         );
