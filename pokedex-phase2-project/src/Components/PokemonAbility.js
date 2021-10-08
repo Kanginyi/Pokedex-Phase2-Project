@@ -10,11 +10,21 @@ const PokemonAbility = ({ability}) => {
         .then(data => setAbilityAPI(data))
     }, [ability])
 
+    const capitalize = (string) => {
+        let words;
+        if (string.indexOf("-")) {
+            words = string.split("-");
+        } else {
+            words = [string];
+        }
+        return words.map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
+    }
+
     if (abilityAPI) {
         const arrayAbilities = abilityAPI.flavor_text_entries
         return (
             <Tooltip data-tooltip={arrayAbilities.length? (arrayAbilities.find(element => element.language.name === 'en')).flavor_text.slice(0,-1) : null}>
-                {ability.slice(0,1).toUpperCase() + ability.slice(1)}
+                {capitalize(ability)}
             </Tooltip>
         )
     }

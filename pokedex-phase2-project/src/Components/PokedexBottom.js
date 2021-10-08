@@ -13,7 +13,7 @@ function PokedexBottom({setPokeId}) {
     const [searchValue, setSearchValue] = useState("");
 
     function search(e) {
-      setSearchValue(e.target.value);
+        setSearchValue(e.target.value);
     }
     
     useEffect(() => {
@@ -28,6 +28,7 @@ function PokedexBottom({setPokeId}) {
         return (
             <div>
                 <SearchBar search={search}/>
+                <div>
                 {filterPokemon.length ? 
                     <PokeScroller style={{width: "100%", height: "52vh"}}>
                         <AutoSizer>
@@ -53,6 +54,7 @@ function PokedexBottom({setPokeId}) {
                     </PokeScroller> : 
                     <h1>No Found Data</h1>
                 }
+                </div>
             </div>
         )
     // } else {

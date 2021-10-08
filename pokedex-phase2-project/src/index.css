@@ -104,6 +104,21 @@ input[type="text"] {
   text-align: center;
 }
 
+.officialImage {
+  cursor: pointer;
+}
+
+.officialImage[jump='1'] {
+  animation: jump 0.8s 1;
+}
+
+@keyframes jump {
+  0% {transform: translateY(0px);}
+  25% {transform: translateY(-50px);}
+  50% {transform: translateY(0px);}
+  75% {transform: translateY(-20px);}
+  100% {transform: translateY(0px);}
+}
 /* .modal > .header {
   border-bottom: 1px solid gray;
   font-size: 18px;
