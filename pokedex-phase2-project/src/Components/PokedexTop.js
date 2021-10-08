@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from 'react';
+import styled from "styled-components";
+import Popup from 'reactjs-popup'
 
 function PokedexTop({pokeId, savePoke, setSavePoke, malePoke, femalePoke, genderlessPoke}) {
     //Gets the name from our db.json file
@@ -104,6 +106,7 @@ function PokedexTop({pokeId, savePoke, setSavePoke, malePoke, femalePoke, gender
             }
         }
         setSavePoke(savePoke => [...savePoke, pokeObj])
+        console.log(savePoke)
         fetch('http://localhost:4000/team', {
             method: "POST",
             headers: {
@@ -113,10 +116,10 @@ function PokedexTop({pokeId, savePoke, setSavePoke, malePoke, femalePoke, gender
         })
     }
 
-
+ 
     if (pokeInfo) {
         return (
-            <>
+            <div>
                 <div id="pokedex-info-container">
                     <div className="pokedex-info-box">
                         {pokeId} | {pokeName} <br/>
@@ -151,13 +154,46 @@ function PokedexTop({pokeId, savePoke, setSavePoke, malePoke, femalePoke, gender
                         <p><strong>Description: </strong>{pokeDesc}</p>
                     </div>
                 </div>
-                <button id="add-to-team-button" disabled={savePoke.length === 6? true:false} onClick={addTeamHandler}>Add Pokémon to Team</button>
-                <hr /><br />
-            </>
+                
+                <button id={savePoke.length === 6? "not-to-team-button" : "add-to-team-button"} disabled={savePoke.length === 6? true:false} onClick={addTeamHandler}>Add Pokémon to Team ({savePoke.length}/6)</button>
+
+                <hr />
+            </div>
         );
     } else {
-        return null;
+        return null
     }
 }
 
 export default PokedexTop;
+
+const EmptyDiv = styled.div`
+    margin-bottom: 300px;
+`
+
+const Modal = styled.div`
+    font-size: 40px;
+    background-color: #e5e5e5;
+    border: 2px solid black;
+    border-radius: 25px;
+    size: b5;
+    text-align: center;
+    padding: 20px;
+`
+
+const Actions = styled.div`
+    width: 100%;
+    padding: 10px 5px;
+    margin: auto;
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+`
+
+const ActionsButton = styled.button`
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 15px;
+    border: 1px solid black;
+    cursor: pointer;
+`
