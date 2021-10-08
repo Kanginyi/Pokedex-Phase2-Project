@@ -76,5 +76,5 @@ const PokeScroller = styled.div `
 `
 
 const BottomDiv = styled.div `
-    margin-top: ${props => props.pokeId ? null : "480px"}
+    margin-top: ${props => props.pokeId ? null : "580px"}
 `
