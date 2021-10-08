@@ -5,6 +5,7 @@ import React from 'react';
 import PokemonLogo from "../PokemonLogo.png";
 //import PokemonContainer from "./PokemonContainer" //Pokemon Team
 import { Link } from "react-router-dom"
+import TrainerInfo from "./TrainerInfo";
 
 function Homepage() {
     return (
@@ -23,12 +24,11 @@ function Homepage() {
                     <p className="homepage-text">A list of Pokemon in the order dictated by the National Pokédex. </p>
                 </div>
                 <div className="homepage-div">
-                    {/* <u>Pokémon</u> */}
                     <Link to={'/pokemon'}>Pokémon</Link>
                     <p className="homepage-text">Pick 6 Pokémon to fill out your party. </p>
                 </div>
                 <div className="homepage-div">
-                    <u>Trainer Info</u>
+                    <Link to={"/trainerInfo"}>Trainer Info</Link>
                     <p className="homepage-text">Check out your badges and more information about you.</p>
                 </div>
                 <div className="homepage-div">

@@ -8,6 +8,7 @@ import PokemonContainer from "./Components/PokemonContainer"
 import Homepage from "./Components/Homepage";
 import { Route, Switch} from "react-router-dom"
 import PokedexContainer from "./Components/PokedexContainer";
+import TrainerInfo from "./Components/TrainerInfo";
 
 function App() {
   const [savePoke, setSavePoke] = useState([])
@@ -32,6 +33,9 @@ function App() {
         </Route>
         <Route exact path="/pokedex">
           <PokedexContainer savePoke={savePoke} setSavePoke={setSavePoke}/>
+        </Route>
+        <Route exact path="/trainerInfo">
+          <TrainerInfo/>
         </Route>
         <Route exact path="/">
           <Homepage />
