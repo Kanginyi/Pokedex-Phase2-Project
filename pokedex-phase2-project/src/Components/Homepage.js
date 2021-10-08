@@ -10,7 +10,7 @@ function Homepage() {
             <br/>
             <img
                 src={PokemonLogo}
-                alt="Pokemon Logo"
+                alt="Pokémon Logo"
                 title="Gotta catch 'em all!"
                 width="550px"
             />
